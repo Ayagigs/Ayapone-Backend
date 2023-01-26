@@ -1,0 +1,31 @@
+{
+  "name": "ayapone-backend-api",
+  "version": "1.0.0",
+  "description": "Backend API based application for Ayapone",
+  "main": "src/app.js",
+  "type": "module",
+  "repository": "https://github.com/Ayapone/Ayapone-Backend-Api.git",
+  "authors": [
+    "Caleb Uche <ebukauche52@gmail.com>",
+    "Abaeze Noble <>"
+  ],
+  "license": "GNU General Public License v3.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node src/app.js",
+    "start": "node --experimental-modules --es-module-specifier-resolution=node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.9",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
+  }
+}
