@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const orderedItemSchema = new mongoose.Schema(
+const productReviewSchema = new mongoose.Schema(
   {
     order: {
       type: mongoose.Schema.Types.ObjectId,
@@ -22,10 +22,10 @@ const orderedItemSchema = new mongoose.Schema(
   },
 )
 
-orderedItemSchema.methods.toJSON = function () {
+productReviewSchema.methods.toJSON = function () {
   var obj = this.toObject()
   delete obj.__v
   return obj
 }
 
-export const OrderedItem = mongoose.model('ordered_items', orderedItemSchema)
+export const ProductReview = mongoose.model('product_review', productReviewSchema)
