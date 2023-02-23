@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
-import { EBusinessType } from '../enums/EBusinessType'
-import { EBlockchainAddressType } from '../enums/EBlockchainAddressType'
+import { EBusinessType } from '../enums/EBusinessType.js'
+import { EBlockchainAddressType } from '../enums/EBlockchainAddressType.js'
 
 const merchantKYCSchema = new mongoose.Schema(
   {

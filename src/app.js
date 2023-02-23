@@ -2,8 +2,8 @@ import express from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import path from 'path';
-import { db } from './config/mongoose_db'
-import { router } from './routes/index'
+import { db } from './config/mongoose_db.js'
+import { router } from './routes/index.js'
 
 dotenv.config();
 db()

@@ -1,10 +1,10 @@
 import express from 'express'
-import { login, register, requestPasswordReset, setNewPassword, regenerateToken } from '../../../controllers/api/authController'
+import { login, register, requestPasswordReset, setNewPassword, regenerateToken } from '../../../controllers/authController.js'
 
-export const authRoutes = express.Router()
+export const AuthRoutes = express.Router()
 
-authRoutes.post('auth/login', login)
-authRoutes.post('auth/register', register)
-authRoutes.post('auth/request-password-reset', requestPasswordReset)
-authRoutes.post('auth/reset-password', setNewPassword)
-authRoutes.post('auth/regenerate-token', regenerateToken)
+AuthRoutes.post('auth/login', login)
+AuthRoutes.post('auth/register', register)
+AuthRoutes.post('auth/request-password-reset', requestPasswordReset)
+AuthRoutes.post('auth/reset-password', setNewPassword)
+AuthRoutes.post('auth/regenerate-token', regenerateToken)
