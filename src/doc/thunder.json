@@ -1,0 +1,64 @@
+{
+    "info": {
+        "name": "Ayapone APIs",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/login",
+                            "path": [
+                                "auth",
+                                "login"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"email\": \"hinata_hyuhau@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Buyer - Sign up",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/register",
+                            "path": [
+                                "auth",
+                                "register"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"password\": \"123456\",\n    \"user_type\": \"buyer\"\n}"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

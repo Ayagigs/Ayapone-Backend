@@ -1,1 +1,40 @@
-[]
+[
+  {
+    "_id": "b2dd81f3-77d4-4434-8040-9f7900303137",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "8597bcc2-2a31-49a2-9bb2-bb07d9653596",
+    "name": "Login",
+    "url": "{{baseUrl}}/auth/login",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-02-23T18:50:03.190Z",
+    "modified": "2023-02-23T20:01:39.125Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"email\": \"hinata_hyuhau@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "513713c1-0f72-474b-9b29-bb5295baf8f2",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "8597bcc2-2a31-49a2-9bb2-bb07d9653596",
+    "name": "Buyer - Sign up",
+    "url": "{{baseUrl}}/auth/register",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-02-23T18:54:13.053Z",
+    "modified": "2023-02-23T20:01:11.418Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"password\": \"123456\",\n    \"user_type\": \"buyer\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
