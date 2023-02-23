@@ -1,6 +1,7 @@
 # Ayapone-Backend-Api
 Ayapone is a cryptocurrency e-commerce platform. This repository houses the core backend api codebase for Ayapone.
 
+
 ## Prerequisites
 
 Softwares needed and how to install them.
@@ -16,6 +17,7 @@ VScode extension Required
   Proceed to Install
 
   Always Format your code with prettier before committing or on save of file.
+
 
 ## Project Board
 All user stories have been broken into task and made available in the repository Github Projects. To access them, open the repository on GitHub and then click on the Project tab.
@@ -104,13 +106,14 @@ Click on the issue that you just solved and add your comments. By the right hand
 
 **Notes:**
 
-> - ALWAYS ```git pull``` before you start working on a new task. This will keep your local main branch up-to-date with origin/main.
+  - ALWAYS ```git pull``` before you start working on a new task. This will keep your local main branch up-to-date with origin/main.
   - Repeat above steps from 2 to 4 for any new task.
   - For update on a specific task, repeat from step 3 to 4.
   - Request a pull request to `STAGING` branch always.
   - DO NOT MERGE YOUR PULL REQUEST.
   - DO NOT WORK ON `MAIN` OR `STAGING` BRANCHE.
   - ALWAYS install dependencies each time you pull create a new branch off main.
+
 
 ### ENV FILE
 There is a copy of the global env file in the repository with name ```.env.example```.
@@ -122,6 +125,7 @@ In your new ```.env``` file, do your configurations there as required.
 The ```.env``` file have been listed in ```.gitignore``` file so as to prevent pushing to git.
 
 > NEVER COMMIT THE ```.env``` FILE
+
 
 ## Running the App
 From the project root directory ```Ayapone-Backend``` on your local terminal,
