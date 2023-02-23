@@ -1824,6 +1824,11 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+redoc-express@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/redoc-express/-/redoc-express-1.0.0.tgz#2b4f684293adc83f5af3461b583f7f9350bd0e0f"
+  integrity sha512-N/0/WrA6U2rJc9hzLy2Jh2CHrQttIcW02jE4xGCiKkU40uTlpFTcEfu9bpsJlTcpffPXVNhhaIbTwz8kxz+M5A==
+
 rimraf@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
