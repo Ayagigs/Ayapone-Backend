@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { EUserRole } from '../enums/EUserRole'
 
 const userSchema = new mongoose.Schema(
   {
@@ -15,12 +16,24 @@ const userSchema = new mongoose.Schema(
       required: [true, 'Email is required.'],
       unique: [true, 'Email already used by another user']
     },
+    username: {
+      type: String,
+      unique: [true, 'Username already used by another user']
+    },
+    phone_number: {
+      type: String,
+    },
     password: {
       type: String,
       required: [true, 'Password is required.']
     },
     password_reset_token: {
       type: String,
+    },
+    user_role: {
+      type: String,
+      enum: EUserRole,
+      default: EUserRole.BUYER,
     },
   },
   {
