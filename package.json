@@ -4,16 +4,23 @@
   "description": "Backend API based application for Ayapone",
   "main": "src/app.js",
   "type": "module",
-  "repository": "https://github.com/Ayapone/Ayapone-Backend-Api.git",
+  "repository": "https://github.com/Ayagigs/Ayapone-Backend.git",
+  "bugs": {
+      "url": "https://github.com/Ayagigs/Ayapone-Backend/issues"
+  },
+  "homepage": "https://github.com/Ayagigs/Ayapone-Backend#readme",
   "authors": [
     "Caleb Uche <ebukauche52@gmail.com>",
-    "Abaeze Noble <>"
+    "Abaeze Noble <onyiboixy@gmail.com>",
+    "Adetunji Adeosun <adetaj@gmail.com>",
+    "Fatomi Abiodun <fatomiabiodun56@gmail.com>",
+    "Bright Ghena <ghena.bright@gmail.com>"
   ],
-  "license": "GNU General Public License v3.0",
+  "license": "ISC",
   "private": true,
   "scripts": {
-    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node src/app.js",
-    "start": "node --experimental-modules --es-module-specifier-resolution=node src/app.js",
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -25,7 +32,9 @@
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.9",
-    "morgan": "^1.10.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.15"
   }
 }
