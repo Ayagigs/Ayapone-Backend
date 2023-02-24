@@ -73,7 +73,7 @@ export const register = async (req, res) => {
       html: `Thank you for joining <h3><a href="${process.env.BASE_URL}">${appName}</a></h3>.<br /> Use this token to complete your registration: <h2>${user.email_verification_token} </h2>`,
     }
 
-    // const mailsender = mailer(data)
+    const mailsender = mailer(data)
 
     const token = createToken({ id: user._id })
 
@@ -141,11 +141,12 @@ export const requestPasswordReset = async (req, res) => {
     }
 
     let sender = process.env.EMAIL_NO_REPLY
+    let appName = process.env.APP_NAME
     const data = {
       to: email,
       from: sender,
-      name: 'AyaVTOL',
-      subject: 'AyaVTOL Password Reset',
+      name: appName,
+      subject: `${appName} Password Reset`,
       text: `Follow this link to reset your passowrd: ${process.env.BASE_URL}/set-new-password?token=${emailExists.password_reset_token}`,
       html: `<h3>Follow this link to reset your passowrd: <a href="${process.env.BASE_URL}/set-new-password?token=${emailExists.password_reset_token}">${process.env.BASE_URL}/set-new-password?token=${emailExists.password_reset_token}</a></h3>`,
     }
