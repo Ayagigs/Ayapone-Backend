@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-02-23T18:50:03.190Z",
-    "modified": "2023-02-23T20:01:39.125Z",
+    "modified": "2023-02-24T14:18:04.954Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"email\": \"hinata_hyuhau@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}",
+      "raw": "{\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}",
       "form": []
     },
     "tests": []
@@ -27,12 +27,50 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-02-23T18:54:13.053Z",
-    "modified": "2023-02-23T20:01:11.418Z",
+    "modified": "2023-02-24T10:42:37.025Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"password\": \"123456\",\n    \"user_type\": \"buyer\"\n}",
+      "raw": "{\n    \"last_name\": \"Punch\",\n    \"first_name\": \"Saitama\",\n    \"email\": \"saitama_punch@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "9016bdd5-3622-4940-b836-03a3a4d48388",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "8597bcc2-2a31-49a2-9bb2-bb07d9653596",
+    "name": "Merchant - Sign up",
+    "url": "{{baseUrl}}/auth/register",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2023-02-24T09:18:14.843Z",
+    "modified": "2023-02-24T13:09:33.552Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\",\n    \"id_type\": \"voters_card\",\n    \"id_number\": \"1234ert432r455E4T5DR654dr\",\n    \"id_front_image_url\": \"\",\n    \"id_back_image_url\": \"\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4e04aba4-b8bb-48ba-8aed-03d2565d3baf",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "8597bcc2-2a31-49a2-9bb2-bb07d9653596",
+    "name": "Verify Email",
+    "url": "{{baseUrl}}/auth/verify",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2023-02-24T13:14:55.036Z",
+    "modified": "2023-02-24T14:00:08.198Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"email\": \"saitama_punch@yopmail.com\",\n    \"token\": 936122\n}",
       "form": []
     },
     "tests": []

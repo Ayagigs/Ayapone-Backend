@@ -1,9 +1,15 @@
 import mongoose from 'mongoose'
 import { EBusinessType } from '../enums/EBusinessType.js'
 import { EBlockchainAddressType } from '../enums/EBlockchainAddressType.js'
+import { EBusinessVerificationStatus } from '../enums/EBusinessVerificationStatus.js'
 
 const merchantKYCSchema = new mongoose.Schema(
   {
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
+      required: [true, 'Business must belong to a user.'],
+    },
     business_name: {
       type: String,
       required: [true, 'Please enter your Last name.'],
@@ -15,7 +21,7 @@ const merchantKYCSchema = new mongoose.Schema(
     business_type: {
       type: String,
       enum: EBusinessType,
-      default: EBusinessType.NONE,
+      default: EBusinessType.OTHERS,
     },
     address: {
       type: String,
@@ -29,27 +35,25 @@ const merchantKYCSchema = new mongoose.Schema(
     country: {
       type: String,
     },
+    postal_code: {
+      type: String,
+    },
     usdt_address: {
       type: String,
     },
     usdt_address_type: {
       type: String,
       enum: EBlockchainAddressType,
-      default: EBlockchainAddressType.NONE,
+      default: EBlockchainAddressType.BEP20,
     },
-    id_type: {
+    verification_status: {
       type: String,
-      enum: EValidIdType,
-      default: EValidIdType.NONE,
+      enum: EBusinessVerificationStatus,
+      default: EBusinessVerificationStatus.PENDING,
     },
-    id_number: {
-      type: String,
-    },
-    id_front_image_url: {
-      type: String,
-    },
-    id_back_image_url: {
-      type: String,
+    is_default_business: {
+      type: Boolean,
+      default: true
     },
   },
   {
