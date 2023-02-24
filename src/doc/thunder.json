@@ -29,7 +29,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n    \"email\": \"hinata_hyuhau@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
+                            "raw": "{\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
                         }
                     }
                 },
@@ -54,7 +54,133 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"password\": \"123456\",\n    \"user_type\": \"buyer\"\n}"
+                            "raw": "{\n    \"last_name\": \"Punch\",\n    \"first_name\": \"Saitama\",\n    \"email\": \"saitama_punch@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Merchant - Sign up",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/register",
+                            "path": [
+                                "auth",
+                                "register"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\",\n    \"id_type\": \"voters_card\",\n    \"id_number\": \"1234ert432r455E4T5DR654dr\",\n    \"id_front_image_url\": \"\",\n    \"id_back_image_url\": \"\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Verify Email",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/verify",
+                            "path": [
+                                "auth",
+                                "verify"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"email\": \"saitama_punch@yopmail.com\",\n    \"token\": 936122\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Request Password Reset",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/request-password-reset",
+                            "path": [
+                                "auth",
+                                "request-password-reset"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"email\": \"saitama_punch@yopmail.com\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Set New Password",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/reset-password",
+                            "path": [
+                                "auth",
+                                "reset-password"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"token\": \"J8cLD6ExhTsBZg46FDtlo0juwv89LGORD12f51GbetkW5RasZ\",\n    \"new_password\": \"123456\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Regenerate Access Token",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/regenerate-token",
+                            "path": [
+                                "auth",
+                                "regenerate-token"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
                         }
                     }
                 }

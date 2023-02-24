@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import { EUserRole } from '../enums/EUserRole.js'
+import { EValidIdType } from '../enums/EValidIdType.js'
 
 const userSchema = new mongoose.Schema(
   {
@@ -18,7 +19,6 @@ const userSchema = new mongoose.Schema(
     },
     username: {
       type: String,
-      unique: [true, 'Username already used by another user']
     },
     phone_number: {
       type: String,
@@ -30,10 +30,30 @@ const userSchema = new mongoose.Schema(
     password_reset_token: {
       type: String,
     },
+    email_verification_token: {
+      type: Number,
+    },
+    is_email_verified: {
+      type: Boolean,
+      default: false
+    },
     user_role: {
       type: String,
       enum: EUserRole,
       default: EUserRole.BUYER,
+    },
+    id_type: {
+      type: String,
+      enum: EValidIdType,
+    },
+    id_number: {
+      type: String,
+    },
+    id_front_image_url: {
+      type: String,
+    },
+    id_back_image_url: {
+      type: String,
     },
   },
   {
@@ -55,6 +75,7 @@ userSchema.methods.toJSON = function () {
   var obj = this.toObject()
   delete obj.password
   delete obj.password_reset_token
+  delete obj.email_verification_token
   delete obj.__v
   return obj
 }

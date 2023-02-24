@@ -1,27 +1,34 @@
 import nodemailer from 'nodemailer'
+import dotenv from 'dotenv';
 
-export const mailer = async (mailOptions) => {
-  let port = process.env.MAIL_PORT
+dotenv.config();
+
+const mailer = async (mailOptions) => {
   const transporter = nodemailer.createTransport({
-    port: port,
+    port: process.env.MAIL_PORT,
     host: process.env.MAIL_HOST,
-    // auth: {
-    //   user: process.env.MAIL_USER,
-    //   pass: process.env.MAIL_PASSWORD,
-    // },
+    auth: {
+      user: process.env.MAIL_USER,
+      pass: process.env.MAIL_PASS,
+    },
     tls: {
       rejectUnauthorized: false,
     },
   })
 
   mailOptions.from = process.env.EMAIL_NO_REPLY
-  transporter.sendMail(mailOptions, (err, info) => {
-    if (err) {
-      console.log(err)
-      throw Error(err)
-    } else {
-      console.log('mail sent: %s', info.messageId)
-      return true
-    }
-  })
+  try {
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        throw Error(err)
+      } else {
+        console.log('mail sent: %s', info.messageId)
+        return true
+      }
+    })
+  } catch (error) {
+    console.log(err)
+  }
 }
+
+export default mailer

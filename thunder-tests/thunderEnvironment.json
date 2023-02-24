@@ -10,6 +10,10 @@
       {
         "name": "baseUrl",
         "value": "http://localhost:8900/api/v1"
+      },
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjNmOGRjZjBlMGIyNTQ5MjU5MmE0ZDEyIiwicmVtZW1iZXJfbWUiOmZhbHNlfSwiaWF0IjoxNjc3MjU1MDg4LCJleHAiOjE2NzczNDE0ODh9.EDSX1NPQO-QARGFtnRzkmmETxwo4z9n-hr7sFPldawA"
       }
     ]
   }
