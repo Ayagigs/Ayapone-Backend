@@ -1,3 +1,3 @@
 export const EBusinessType = {
-  NONE: 'none',
+  OTHERS: 'others',
 }

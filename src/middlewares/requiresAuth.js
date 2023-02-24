@@ -17,7 +17,7 @@ export const requiresAuth = async (req, res, next) => {
           // make user available for the next middleware
           // console.log(decodedToken.data)
           res.locals.user = decodedToken.data.id
-          res.locals.remember_me = decodedToken.data.id
+          res.locals.remember_me = decodedToken.data.remember_me
           next()
         }
       })

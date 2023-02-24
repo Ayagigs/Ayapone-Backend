@@ -14,7 +14,11 @@ export const handleErrors = (err) => {
     return (errors.email = 'User not found.');
   }
 
-  if (err.message === 'invalid token') {
+  if (err.message === 'invalid verification token') {
+    return (errors.email = 'Invalid Verification Token!');
+  }
+
+  if (err.message === 'invalid recovery token') {
     return (errors.email = 'Recovery Link expired!');
   }
 
