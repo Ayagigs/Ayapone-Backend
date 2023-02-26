@@ -13,7 +13,7 @@ export const login = async (req, res) => {
   const { email, password, remember_me } = req.body
 
   try {
-    const user = await User.findOne({ email: email })
+    const user = await User.findOne({ email: email, is_deleted: false })
     if (!user) {
       throw Error('invalid credentials')
     }
@@ -109,21 +109,21 @@ export const register = async (req, res) => {
 
 export const verifyAccount = async (req, res) => {
   const { token, email } = req.body
-    try {
-      const user = await User.findOneAndUpdate(
-        { email_verification_token: token, email: email },
-        { $set: { is_email_verified: true } },
-      )
+  try {
+    const user = await User.findOneAndUpdate(
+      { email_verification_token: token, email: email },
+      { $set: { is_email_verified: true } },
+    )
 
-      if (!user) {
-        throw Error('invalid verification token')
-      }
-
-      return res.status(StatusCodes.OK).json({ success: 'SUCCESSFUL' })
-    } catch (err) {
-      const error = handleErrors(err)
-      return res.status(StatusCodes.BAD_REQUEST).json({ error })
+    if (!user) {
+      throw Error('invalid verification token')
     }
+
+    return res.status(StatusCodes.OK).json({ success: 'SUCCESSFUL' })
+  } catch (err) {
+    const error = handleErrors(err)
+    return res.status(StatusCodes.BAD_REQUEST).json({ error })
+  }
 }
 
 export const requestPasswordReset = async (req, res) => {

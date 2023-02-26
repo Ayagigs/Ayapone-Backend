@@ -55,6 +55,10 @@ const userSchema = new mongoose.Schema(
     id_back_image_url: {
       type: String,
     },
+    is_deleted: {
+      type: Boolean,
+      default: false
+    },
   },
   {
     timestamps: {
@@ -76,6 +80,7 @@ userSchema.methods.toJSON = function () {
   delete obj.password
   delete obj.password_reset_token
   delete obj.email_verification_token
+  delete obj.is_deleted
   delete obj.__v
   return obj
 }
