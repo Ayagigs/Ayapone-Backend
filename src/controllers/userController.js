@@ -43,7 +43,7 @@ export const updateUser = async (req, res) => {
 
   try {
     const updatedUser = await User.findOneAndUpdate(
-      { _id: req.params.userId },
+      { _id: req.locals.user },
       { $set: { 
           last_name,
           first_name,
@@ -147,7 +147,7 @@ export const deleteUser = async (req, res) => {
     // This will lead to inconsistencies in data, hence we would implement soft-delete
 
     const deletedUser = await User.findOneAndUpdate(
-      { _id: req.params.userId },
+      { _id: req.locals.user },
       { $set: { is_deleted: true } },
       { new: true },
     )
