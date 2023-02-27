@@ -29,7 +29,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
+                            "raw": "{\n    \"email\": \"saitama_punch@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
                         }
                     }
                 },
@@ -167,6 +167,244 @@
                             "path": [
                                 "auth",
                                 "regenerate-token"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "User Management",
+            "item": [
+                {
+                    "name": "Fetch All Users",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/users",
+                            "path": [
+                                "users"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Fetch User By Id",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/user/{{userId}}",
+                            "path": [
+                                "user",
+                                "{{userId}}"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update User",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "{{baseUrl}}/user",
+                            "path": [
+                                "user"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"last_name\": \"Punch\",\n  \"first_name\": \"Saitama\",\n  \"username\": \"one_punch_man\",\n  \"phone_number\": \"+2348909090909\",\n  \"id_type\": \"voters_card\",\n  \"id_number\": \"489094890090909\",\n  \"id_front_image_url\": \"\",\n  \"id_back_image_url\": \"\"\n}\n"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Change Password",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "{{baseUrl}}/user/change-password",
+                            "path": [
+                                "user",
+                                "change-password"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"old_password\": \"1234567\",\n  \"new_password\": \"123456\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Change Profile Photo",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/user/upload-profile-photo",
+                            "path": [
+                                "user",
+                                "upload-profile-photo"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "files",
+                                    "src": "../../../../../../../home/kali/Pictures/Screenshots/Screenshot from 2023-02-23 19-14-18.png",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Change Cover Photo",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/user/upload-cover-photo",
+                            "path": [
+                                "user",
+                                "upload-cover-photo"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "files",
+                                    "src": "../../../../../../../home/kali/Pictures/Screenshots/Screenshot from 2023-02-16 19-55-04.png",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create An Admin",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/user/add-admin",
+                            "path": [
+                                "user",
+                                "add-admin"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"last_name\": \"Yolla\",\n  \"first_name\": \"Minn\",\n  \"email\": \"yolla@yopmail.com\",\n  \"phone_number\": \"+23456567888766\",\n  \"password\": \"123456\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete My Account",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/user/close-account",
+                            "path": [
+                                "user",
+                                "close-account"
                             ],
                             "host": [
                                 "{{baseurl}}"
