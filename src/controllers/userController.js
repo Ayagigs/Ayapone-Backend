@@ -25,7 +25,7 @@ export const fetchAllUsers = async (req, res) => {
 
 export const fetchOneUserById = async (req, res) => {
   try {
-    const user = await User.findOne({ _id: req.params.userId })
+    const user = await User.findById(req.params.userId)
     if (!user) {
       return res.status(StatusCodes.NOT_FOUND).json({ error: { message: 'user not found' }})
     }
@@ -45,7 +45,7 @@ export const updateUser = async (req, res) => {
 
   try {
     const updatedUser = await User.findOneAndUpdate(
-      { _id: req.locals.user },
+      { _id: res.locals.user },
       { $set: { 
           last_name,
           first_name,
@@ -204,7 +204,7 @@ export const createAdminUser = async (req, res) => {
 
     const mailsender = mailer(data)
 
-    return res.status(StatusCodes.CREATED).json({ user, token })
+    return res.status(StatusCodes.CREATED).json({ admin: user })
   } catch (err) {
     const error = handleErrors(err)
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error })

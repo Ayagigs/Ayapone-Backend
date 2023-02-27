@@ -5,8 +5,7 @@ import { requiresAuth } from '../../../middlewares/requiresAuth.js'
 export const UserRoutes = express.Router()
 
 UserRoutes.get('/users', fetchAllUsers)
-UserRoutes.get('/users/:userId', fetchOneUserById)
-
+UserRoutes.get('/user/:userId', fetchOneUserById)
 UserRoutes.patch('/user', requiresAuth, updateUser)
 UserRoutes.patch('/user/change-password', requiresAuth, changePassword)
 UserRoutes.post('/user/upload-profile-photo', requiresAuth, changeProfilePhoto)

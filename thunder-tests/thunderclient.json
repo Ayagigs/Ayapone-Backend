@@ -8,7 +8,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-02-23T18:50:03.190Z",
-    "modified": "2023-02-27T14:56:11.564Z",
+    "modified": "2023-02-27T15:28:34.906Z",
     "headers": [],
     "params": [],
     "body": {
@@ -150,11 +150,11 @@
     "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
     "containerId": "aeef4dfa-8349-40eb-8540-cc3519a7757e",
     "name": "Fetch User By Id",
-    "url": "{{baseUrl}}/users/{{userId}}",
+    "url": "{{baseUrl}}/user/{{userId}}",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-02-26T11:31:50.194Z",
-    "modified": "2023-02-26T11:37:42.781Z",
+    "modified": "2023-02-27T15:05:41.112Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -168,12 +168,12 @@
     "method": "POST",
     "sortNum": 23750,
     "created": "2023-02-26T11:38:21.416Z",
-    "modified": "2023-02-26T12:42:19.072Z",
+    "modified": "2023-02-27T15:12:10.166Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"last_name\": \"\",\n  \"first_name\": \"\",\n  \"email\": \"\",\n  \"phone_number\": \"\",\n  \"password\": \"\"\n}",
+      "raw": "{\n  \"last_name\": \"Yolla\",\n  \"first_name\": \"Minn\",\n  \"email\": \"yolla@yopmail.com\",\n  \"phone_number\": \"+23456567888766\",\n  \"password\": \"123456\"\n}",
       "form": []
     },
     "auth": {
@@ -209,12 +209,12 @@
     "method": "PATCH",
     "sortNum": 22500,
     "created": "2023-02-26T12:38:31.964Z",
-    "modified": "2023-02-26T12:41:06.777Z",
+    "modified": "2023-02-27T15:09:50.996Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"last_name\": \"\",\n  \"first_name\": \"\",\n  \"username\": \"\",\n  \"phone_number\": \"\",\n  \"id_type\": \"\",\n  \"id_number\": \"\",\n  \"id_front_image_url\": \"\",\n  \"id_back_image_url\": \"\"\n}",
+      "raw": "{\n  \"last_name\": \"Punch\",\n  \"first_name\": \"Saitama\",\n  \"username\": \"one_punch_man\",\n  \"phone_number\": \"+2348909090909\",\n  \"id_type\": \"voters_card\",\n  \"id_number\": \"489094890090909\",\n  \"id_front_image_url\": \"\",\n  \"id_back_image_url\": \"\"\n}\n",
       "form": []
     },
     "auth": {
