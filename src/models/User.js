@@ -42,6 +42,12 @@ const userSchema = new mongoose.Schema(
       enum: EUserRole,
       default: EUserRole.BUYER,
     },
+    profile_photo: {
+      type: String,
+    },
+    cover_photo: {
+      type: String,
+    },
     id_type: {
       type: String,
       enum: EValidIdType,

@@ -13,11 +13,18 @@
         "sortNum": 10000
       },
       {
+        "_id": "aeef4dfa-8349-40eb-8540-cc3519a7757e",
+        "name": "User Management",
+        "containerId": "",
+        "created": "2023-02-26T11:30:47.318Z",
+        "sortNum": 20000
+      },
+      {
         "_id": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
-        "name": "ProductReview",
+        "name": "Product Review",
         "containerId": "",
         "created": "2023-02-27T12:48:23.638Z",
-        "sortNum": 20000
+        "sortNum": 30000
       }
     ],
     "settings": {

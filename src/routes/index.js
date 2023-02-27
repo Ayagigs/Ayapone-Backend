@@ -1,8 +1,9 @@
 import express from 'express'
-import { AuthRoutes } from './api/v1/auth.js'
-import { reviewRoute } from './api/v1/reviewRoute.js'
-import { StatusCodes } from 'http-status-codes'
 import redoc from 'redoc-express'
+import { StatusCodes } from 'http-status-codes'
+import { AuthRoutes } from './api/v1/auth.js'
+import { UserRoutes } from './api/v1/user.js'
+import { reviewRoute } from './api/v1/reviewRoute.js'
 
 export const router = express.Router()
 
@@ -19,6 +20,7 @@ router.get(
 )
 
 router.use('/api/v1', AuthRoutes)
+router.use('/api/v1', UserRoutes)
 router.use('/api/v1', reviewRoute)
 
 router.use((req, res) => {

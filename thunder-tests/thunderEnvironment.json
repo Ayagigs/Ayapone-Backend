@@ -13,7 +13,11 @@
       },
       {
         "name": "token",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjNmOGRjZjBlMGIyNTQ5MjU5MmE0ZDEyIiwicmVtZW1iZXJfbWUiOmZhbHNlfSwiaWF0IjoxNjc3MjU1MDg4LCJleHAiOjE2NzczNDE0ODh9.EDSX1NPQO-QARGFtnRzkmmETxwo4z9n-hr7sFPldawA"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjNmOGQxM2UyZGZmZGMxZjk4NGZjYzIyIiwicmVtZW1iZXJfbWUiOnRydWV9LCJpYXQiOjE2Nzc0MTY0MTEsImV4cCI6MTY4MDAwODQxMX0.dmRi4KvOQChbbNnHTaOv3dtAb7NJPAyrFBXQr8tSJLU"
+      },
+      {
+        "name": "userId",
+        "value": "63f8d13e2dffdc1f984fcc22"
       }
     ]
   }
