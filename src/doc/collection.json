@@ -33,6 +33,9 @@
     "tags": [
         {
             "name": "Auth"
+        },
+        {
+            "name": "User Management"
         }
     ],
     "paths": {
@@ -48,7 +51,7 @@
                             "schema": {
                                 "type": "object",
                                 "example": {
-                                    "email": "hinata_hyuga@yopmail.com",
+                                    "email": "saitama_punch@yopmail.com",
                                     "password": "123456",
                                     "remember_me": true
                                 }
@@ -209,6 +212,252 @@
                 "requestBody": {
                     "content": {}
                 },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Fetch All Users",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{userId}": {
+            "get": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Fetch User By Id",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "patch": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Update User",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "last_name": "Punch",
+                                    "first_name": "Saitama",
+                                    "username": "one_punch_man",
+                                    "phone_number": "+2348909090909",
+                                    "id_type": "voters_card",
+                                    "id_number": "489094890090909",
+                                    "id_front_image_url": "",
+                                    "id_back_image_url": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/user/change-password": {
+            "patch": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Change Password",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "old_password": "1234567",
+                                    "new_password": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/user/upload-profile-photo": {
+            "post": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Change Profile Photo",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "files": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/user/upload-cover-photo": {
+            "post": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Change Cover Photo",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "files": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/user/add-admin": {
+            "post": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Create An Admin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "last_name": "Yolla",
+                                    "first_name": "Minn",
+                                    "email": "yolla@yopmail.com",
+                                    "phone_number": "+23456567888766",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/user/close-account": {
+            "delete": {
+                "tags": [
+                    "User Management"
+                ],
+                "summary": "Delete My Account",
                 "security": [
                     {
                         "bearerAuth": []
