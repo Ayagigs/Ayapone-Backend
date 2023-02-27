@@ -303,5 +303,28 @@
       "bearer": "{{token}}"
     },
     "tests": []
+  },
+  {
+    "_id": "e4f58e20-e9a7-4b66-8010-74f8e9fcef96",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
+    "name": "Create",
+    "url": "{{baseUrl}}/reviews",
+    "method": "POST",
+    "sortNum": 100000,
+    "created": "2023-02-27T12:50:01.734Z",
+    "modified": "2023-02-27T12:52:41.111Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"comment\": \"looks good\",\n  \"rating\": \"1.5\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
   }
 ]

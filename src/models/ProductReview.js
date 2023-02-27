@@ -10,6 +10,8 @@ const productReviewSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'products',
     },
+    comment: { type: String, required: true },
+    rating: { type: Number, required: true },
   },
   {
     timestamps: {
@@ -28,4 +30,7 @@ productReviewSchema.methods.toJSON = function () {
   return obj
 }
 
-export const ProductReview = mongoose.model('product_review', productReviewSchema)
+export const ProductReview = mongoose.model(
+  'product_review',
+  productReviewSchema,
+)
