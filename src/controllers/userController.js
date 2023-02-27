@@ -4,7 +4,7 @@ import { handleErrors } from '../utils/errorHandler.js'
 import { hashPassword } from '../utils/hashPassword.js'
 import { EUserRole } from '../enums/EUserRole.js'
 import mailer from '../utils/mailer.js'
-import cloudImageUpload from '../utils/fileHandler.js'
+import { cloudImageUpload } from '../utils/fileHandler.js'
 import { StatusCodes } from 'http-status-codes'
 import bcrypt from 'bcrypt'
 import randomId from 'random-id'
@@ -30,7 +30,9 @@ export const fetchOneUserById = async (req, res) => {
       return res.status(StatusCodes.NOT_FOUND).json({ error: { message: 'user not found' }})
     }
 
-    return res.status(StatusCodes.OK).json({ user })
+    const businesses = await MerchantKYC.find({ owner: user })
+
+    return res.status(StatusCodes.OK).json({ user, businesses })
 
   } catch (err) {
     const error = handleErrors(err)
@@ -123,7 +125,7 @@ export const changeCoverPhoto = async (req, res) => {
   try {
     const user = await User.findOne({ _id: res.locals.user, is_deleted: false })
     if (!user) {
-      throw Error('user not found')
+      return res.status(StatusCodes.BAD_REQUEST).json({ message: 'user not found' })
     }
 
     const upload = await cloudImageUpload(req)
@@ -137,6 +139,7 @@ export const changeCoverPhoto = async (req, res) => {
 
     throw Error(upload)
   } catch (err) {
+    console.log(err)
     return res.status(StatusCodes.BAD_REQUEST).json({ err })
   }
 }
@@ -147,19 +150,19 @@ export const deleteUser = async (req, res) => {
     // This will lead to inconsistencies in data, hence we would implement soft-delete
 
     const deletedUser = await User.findOneAndUpdate(
-      { _id: req.locals.user },
+      { _id: res.locals.user, is_deleted: false },
       { $set: { is_deleted: true } },
       { new: true },
     )
 
     // also delete merchant kyc too if available
     const deletedKyc = await MerchantKYC.findOneAndUpdate(
-      { _id: deletedUser._id },
+      { owner: res.locals.user },
       { $set: { is_deleted: true } },
       { new: true },
     )
 
-    return res.status(StatusCodes.OK).json({ success: "DONE" })
+    return res.status(StatusCodes.OK).json({ success: "ACCOUNT DELETED" })
   } catch (err) {
     const error = handleErrors(err)
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error })

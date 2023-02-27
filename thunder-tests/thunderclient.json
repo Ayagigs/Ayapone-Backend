@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-02-23T18:50:03.190Z",
-    "modified": "2023-02-24T16:12:31.630Z",
+    "modified": "2023-02-27T14:56:11.564Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}",
+      "raw": "{\n    \"email\": \"saitama_punch@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}",
       "form": []
     },
     "tests": []
@@ -125,6 +125,179 @@
     "modified": "2023-02-24T16:07:07.074Z",
     "headers": [],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "d693cd38-2361-4cf3-a8ab-c864989b27d8",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "aeef4dfa-8349-40eb-8540-cc3519a7757e",
+    "name": "Fetch All Users",
+    "url": "{{baseUrl}}/users",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-02-26T11:30:57.171Z",
+    "modified": "2023-02-26T11:31:31.681Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "06f8d8f3-bdc5-4577-a8a9-a5400e2f6196",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "aeef4dfa-8349-40eb-8540-cc3519a7757e",
+    "name": "Fetch User By Id",
+    "url": "{{baseUrl}}/users/{{userId}}",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-02-26T11:31:50.194Z",
+    "modified": "2023-02-26T11:37:42.781Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8add3357-4e28-4302-b3d8-850deca7fe6b",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "aeef4dfa-8349-40eb-8540-cc3519a7757e",
+    "name": "Create An Admin",
+    "url": "{{baseUrl}}/user/add-admin",
+    "method": "POST",
+    "sortNum": 23750,
+    "created": "2023-02-26T11:38:21.416Z",
+    "modified": "2023-02-26T12:42:19.072Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"last_name\": \"\",\n  \"first_name\": \"\",\n  \"email\": \"\",\n  \"phone_number\": \"\",\n  \"password\": \"\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "14fb1415-ab42-420a-b19c-b90a1d07834c",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "aeef4dfa-8349-40eb-8540-cc3519a7757e",
+    "name": "Delete My Account",
+    "url": "{{baseUrl}}/user/close-account",
+    "method": "DELETE",
+    "sortNum": 25000,
+    "created": "2023-02-26T12:35:50.037Z",
+    "modified": "2023-02-26T12:38:09.604Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "665d6dd0-f8ba-42c3-9cc3-2f45f2a5f8a6",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "aeef4dfa-8349-40eb-8540-cc3519a7757e",
+    "name": "Update User",
+    "url": "{{baseUrl}}/user",
+    "method": "PATCH",
+    "sortNum": 22500,
+    "created": "2023-02-26T12:38:31.964Z",
+    "modified": "2023-02-26T12:41:06.777Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"last_name\": \"\",\n  \"first_name\": \"\",\n  \"username\": \"\",\n  \"phone_number\": \"\",\n  \"id_type\": \"\",\n  \"id_number\": \"\",\n  \"id_front_image_url\": \"\",\n  \"id_back_image_url\": \"\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "108e20bc-e8e7-4ab1-b16e-e0c92dc713b4",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "aeef4dfa-8349-40eb-8540-cc3519a7757e",
+    "name": "Change Password",
+    "url": "{{baseUrl}}/user/change-password",
+    "method": "PATCH",
+    "sortNum": 23125,
+    "created": "2023-02-26T12:42:54.027Z",
+    "modified": "2023-02-27T14:56:22.189Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"old_password\": \"1234567\",\n  \"new_password\": \"123456\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "156a7f1e-242c-401d-b94d-dcc13def5437",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "aeef4dfa-8349-40eb-8540-cc3519a7757e",
+    "name": "Change Profile Photo",
+    "url": "{{baseUrl}}/user/upload-profile-photo",
+    "method": "POST",
+    "sortNum": 23437.5,
+    "created": "2023-02-26T12:49:38.628Z",
+    "modified": "2023-02-27T14:54:45.490Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "files",
+          "value": "../../../../../../../home/kali/Pictures/Screenshots/Screenshot from 2023-02-23 19-14-18.png"
+        }
+      ]
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "71f24bdb-5e26-46db-8284-a7ba7dc3eaa0",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "aeef4dfa-8349-40eb-8540-cc3519a7757e",
+    "name": "Change Cover Photo",
+    "url": "{{baseUrl}}/user/upload-cover-photo",
+    "method": "POST",
+    "sortNum": 23593.8,
+    "created": "2023-02-26T12:50:39.319Z",
+    "modified": "2023-02-27T14:50:02.116Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "files",
+          "value": "../../../../../../../home/kali/Pictures/Screenshots/Screenshot from 2023-02-16 19-55-04.png"
+        }
+      ]
+    },
     "auth": {
       "type": "bearer",
       "bearer": "{{token}}"
