@@ -18,6 +18,14 @@
       {
         "name": "userId",
         "value": "63f8d13e2dffdc1f984fcc22"
+      },
+      {
+        "name": "productId",
+        "value": "63f8d13e2dffdc1f984fcc22"
+      },
+      {
+        "name": "reviewId",
+        "value": ""
       }
     ]
   }

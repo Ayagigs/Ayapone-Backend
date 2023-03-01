@@ -308,12 +308,12 @@
     "_id": "e4f58e20-e9a7-4b66-8010-74f8e9fcef96",
     "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
     "containerId": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
-    "name": "Create",
+    "name": "Create Review",
     "url": "{{baseUrl}}/reviews",
     "method": "POST",
     "sortNum": 100000,
     "created": "2023-02-27T12:50:01.734Z",
-    "modified": "2023-02-27T12:52:41.111Z",
+    "modified": "2023-03-01T13:55:50.923Z",
     "headers": [],
     "params": [],
     "body": {
@@ -321,6 +321,101 @@
       "raw": "{\n  \"comment\": \"looks good\",\n  \"rating\": \"1.5\"\n}",
       "form": []
     },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "034a3f4a-b12c-4411-98d5-8f195899f22e",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
+    "name": "Fetch Reviews for a Product",
+    "url": "{{baseUrl}}/reviews/product/{{productId}}",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-03-01T13:55:31.552Z",
+    "modified": "2023-03-01T13:59:16.350Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "733d45ae-bafd-4426-b3f5-53f821e45053",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
+    "name": "Fetch Reviews by Current User",
+    "url": "{{baseUrl}}/reviews",
+    "method": "GET",
+    "sortNum": 105000,
+    "created": "2023-03-01T14:13:35.890Z",
+    "modified": "2023-03-01T14:14:09.393Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "ee7eaed9-62ae-47bc-b041-d8a8861bb7dd",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
+    "name": "Fetch Review by ID",
+    "url": "{{baseUrl}}/reviews/{{reviewId}}",
+    "method": "GET",
+    "sortNum": 120000,
+    "created": "2023-03-01T14:17:18.566Z",
+    "modified": "2023-03-01T14:17:30.776Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "f9dcc5f0-d2ba-4252-beb1-eb81ce93832b",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
+    "name": "Update Review",
+    "url": "{{baseUrl}}/reviews/{{reviewId}}",
+    "method": "PATCH",
+    "sortNum": 130000,
+    "created": "2023-03-01T14:24:42.403Z",
+    "modified": "2023-03-01T14:27:27.342Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"comment\": \"looks good\",\n  \"rating\": \"1.5\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "293e07fe-2eef-4fc4-ad68-497232dd9561",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
+    "name": "Delete Review",
+    "url": "{{baseUrl}}/reviews/{{reviewId}}",
+    "method": "DELETE",
+    "sortNum": 140000,
+    "created": "2023-03-01T14:25:04.851Z",
+    "modified": "2023-03-01T14:25:28.306Z",
+    "headers": [],
+    "params": [],
     "auth": {
       "type": "bearer",
       "bearer": "{{token}}"

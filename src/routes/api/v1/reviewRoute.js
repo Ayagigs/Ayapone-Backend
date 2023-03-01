@@ -1,13 +1,14 @@
 import express from 'express';
-import { createReview, getReviewsByProductId, getReviewsByUserId, getReviewById, updateReview, deleteReview } from '../../../controllers/reviewController.js';
+import { createReview, getReviewsByProductId, getReviewsByCurrentUser, getReviewById, updateReview, deleteReview } from '../../../controllers/reviewController.js';
+import { requiresAuth } from '../../../middlewares/requiresAuth.js'
 
-export const reviewRoute = express.Router()
+export const ReviewRoutes = express.Router()
 
-reviewRoute.post('/reviews', createReview);
-reviewRoute.get('/reviews/product/:productId', getReviewsByProductId);
-reviewRoute.get('/reviews/user/:userId', getReviewsByUserId);
-reviewRoute.get('/reviews/:reviewId', getReviewById);
-reviewRoute.patch('/reviews/:reviewId', updateReview);
-reviewRoute.delete('/reviews/:reviewId', deleteReview);
+ReviewRoutes.post('/reviews', requiresAuth, createReview);
+ReviewRoutes.get('/reviews', requiresAuth, getReviewsByCurrentUser);
+ReviewRoutes.get('/reviews/product/:productId', getReviewsByProductId);
+ReviewRoutes.get('/reviews/:reviewId', getReviewById);
+ReviewRoutes.patch('/reviews/:reviewId', requiresAuth, updateReview);
+ReviewRoutes.delete('/reviews/:reviewId', requiresAuth, deleteReview);
 
 
