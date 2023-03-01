@@ -3,6 +3,7 @@ import { AuthRoutes } from './api/v1/auth.js'
 import { UserRoutes } from './api/v1/user.js'
 import { StatusCodes } from 'http-status-codes'
 import redoc from 'redoc-express'
+import { ProductRoutes } from './api/v1/products.js'
 
 export const router = express.Router()
 
@@ -20,6 +21,7 @@ router.get(
 
 router.use('/api/v1', AuthRoutes)
 router.use('/api/v1', UserRoutes)
+router.use('/api/v1',ProductRoutes)
 
 router.use((req, res) => {
   return res.status(StatusCodes.NOT_FOUND).json({})
