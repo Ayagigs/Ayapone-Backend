@@ -423,6 +423,184 @@
                     }
                 }
             ]
+        },
+        {
+            "name": "Product Review",
+            "item": [
+                {
+                    "name": "Create Review",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/reviews",
+                            "path": [
+                                "reviews"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"comment\": \"looks good\",\n  \"rating\": \"1.5\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Fetch Reviews by Current User",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/reviews",
+                            "path": [
+                                "reviews"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Fetch Reviews for a Product",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/reviews/product/{{productId}}",
+                            "path": [
+                                "reviews",
+                                "product",
+                                "{{productId}}"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Fetch Review by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/reviews/{{reviewId}}",
+                            "path": [
+                                "reviews",
+                                "{{reviewId}}"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Review",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "{{baseUrl}}/reviews/{{reviewId}}",
+                            "path": [
+                                "reviews",
+                                "{{reviewId}}"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"comment\": \"looks good\",\n  \"rating\": \"1.5\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Review",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/reviews/{{reviewId}}",
+                            "path": [
+                                "reviews",
+                                "{{reviewId}}"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
         }
     ]
 }
