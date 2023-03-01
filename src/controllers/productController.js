@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes'
-import { Product } from '../models/Product'
-import { handleErrors } from '../utils/errorHandler'
-import {toObjectId} from '../utils/convert'
+import { Product } from '../models/Product.js'
+import { handleErrors } from '../utils/errorHandler.js'
+import {toObjectId} from '../utils/convert.js'
 
 export const createProduct = async (req, res, next) => {
   const { name, description, delivery, price, categoryId, brandId } = req.body
@@ -44,6 +44,12 @@ export const updateProduct = async (req, res, next) => {
     if (!product) {
       return res.status(StatusCodes.NOT_FOUND).json({
         error: 'Product not found',
+      })
+    }
+    const existingProduct = await Product.findOne({name})
+    if(existingProduct){
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        error: 'Product name already exists',
       })
     }
     const updated = await product.updateOne({
