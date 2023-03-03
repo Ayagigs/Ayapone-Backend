@@ -421,5 +421,46 @@
       "bearer": "{{token}}"
     },
     "tests": []
+  },
+  {
+    "_id": "04fd4c1f-b3f1-402a-a142-81164e014992",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "b94c94a3-2ef4-4265-ad2c-af1dc867546f",
+    "name": "checkout",
+    "url": "{{baseUrl}}/checkout",
+    "method": "POST",
+    "sortNum": 150000,
+    "created": "2023-03-03T11:55:11.144Z",
+    "modified": "2023-03-03T12:05:56.445Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"last_name\": \"Habiku\",\n  \"first_name\": \"Kanga\",\n  \"email\": \"kanga@yopmail.com\",\n  \"phone_number\": \"+2349809898776\",\n  \"addrress_one\": \"house way, bloodline street\",\n  \"addrress_two\": \"\",\n  \"city\": \"Tampo\",\n  \"state\": \"Jagi\",\n  \"country\": \"Layth\",\n  \"postal_code\": \"23423\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "4e563142-215e-4bb5-9c28-c4f63453c8aa",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "b94c94a3-2ef4-4265-ad2c-af1dc867546f",
+    "name": "Get Delivery Info",
+    "url": "{{baseUrl}}/checkout/delivery-info",
+    "method": "GET",
+    "sortNum": 160000,
+    "created": "2023-03-03T11:58:49.816Z",
+    "modified": "2023-03-03T12:00:24.333Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
   }
 ]

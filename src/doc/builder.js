@@ -13,7 +13,7 @@ try {
             url: 'https://github.com/Ayagigs/Ayapone-Backend/blob/main/LICENSE'
         },
         contact: {
-            url: 'https://github.com/Ayagigs/Ayapone-Backend/issues'
+            url: 'https://ayapone-backend.onrender.com/ap1/v1'
         },
         xLogo: {
             url: 'https://github.com/Ayagigs/Ayapone-Backend/blob/main/assets/imgs/ayapone.png?raw=true',
