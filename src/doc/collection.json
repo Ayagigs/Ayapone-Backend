@@ -10,7 +10,7 @@
             "altText": "AYAPONE"
         },
         "contact": {
-            "url": "https://github.com/Ayagigs/Ayapone-Backend/issues"
+            "url": "https://ayapone-backend.onrender.com/ap1/v1"
         },
         "license": {
             "name": "GNU GENERAL PUBLIC LICENSE",
@@ -36,6 +36,12 @@
         },
         {
             "name": "User Management"
+        },
+        {
+            "name": "Product Review"
+        },
+        {
+            "name": "Checkout"
         }
     ],
     "paths": {
@@ -458,6 +464,255 @@
                     "User Management"
                 ],
                 "summary": "Delete My Account",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/reviews": {
+            "post": {
+                "tags": [
+                    "Product Review"
+                ],
+                "summary": "Create Review",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "comment": "looks good",
+                                    "rating": "1.5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Product Review"
+                ],
+                "summary": "Fetch Reviews by Current User",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/reviews/product/{productId}": {
+            "get": {
+                "tags": [
+                    "Product Review"
+                ],
+                "summary": "Fetch Reviews for a Product",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "productId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/reviews/{reviewId}": {
+            "get": {
+                "tags": [
+                    "Product Review"
+                ],
+                "summary": "Fetch Review by ID",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "reviewId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Product Review"
+                ],
+                "summary": "Update Review",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "comment": "looks good",
+                                    "rating": "1.5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "reviewId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Product Review"
+                ],
+                "summary": "Delete Review",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "reviewId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/checkout": {
+            "post": {
+                "tags": [
+                    "Checkout"
+                ],
+                "summary": "checkout",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "last_name": "Habiku",
+                                    "first_name": "Kanga",
+                                    "email": "kanga@yopmail.com",
+                                    "phone_number": "+2349809898776",
+                                    "addrress_one": "house way, bloodline street",
+                                    "addrress_two": "",
+                                    "city": "Tampo",
+                                    "state": "Jagi",
+                                    "country": "Layth",
+                                    "postal_code": "23423"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/checkout/delivery-info": {
+            "get": {
+                "tags": [
+                    "Checkout"
+                ],
+                "summary": "Get Delivery Info",
                 "security": [
                     {
                         "bearerAuth": []
