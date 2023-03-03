@@ -13,7 +13,15 @@ const orderSchema = new mongoose.Schema(
         ref: 'products',
       },
     ],
-    total: {
+    sub_total: {
+      type: Number,
+      default: 0.00
+    },
+    delivery_fee: {
+      type: Number,
+      default: 0.00
+    },
+    grand_total: {
       type: Number,
       default: 0.00
     },
@@ -33,6 +41,11 @@ const orderSchema = new mongoose.Schema(
     },
   },
 )
+
+orderSchema.pre('save', async function(next) {
+  this.grand_total = sub_total + delivery_fee
+  next();
+})
 
 orderSchema.methods.toJSON = function () {
   var obj = this.toObject()

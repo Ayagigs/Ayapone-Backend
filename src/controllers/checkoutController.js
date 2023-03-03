@@ -34,7 +34,7 @@ export const checkoutCart = async (req, res) => {
       const order = await Order.create({
         buyer: cart.owner,
         products: cart.products,
-        total: cart.total,
+        sub_total: cart.total,
         delivery_info: shippingAddress,
       })
 
