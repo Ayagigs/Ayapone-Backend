@@ -7,12 +7,16 @@ const cartSchema = new mongoose.Schema(
       ref: 'users',
       required: [true, 'Cart must belong to a customer.'],
     },
-    cart_items: [
+    products: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'cart_items',
+        ref: 'products',
       },
     ],
+    total: {
+      type: Number,
+      default: 0.00
+    },
   },
   {
     timestamps: {

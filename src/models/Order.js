@@ -5,20 +5,23 @@ const orderSchema = new mongoose.Schema(
     buyer: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'users',
-      required: [true, 'Cart must belong to a customer.'],
+      required: [true, 'Order must belong to a customer.'],
     },
-    merchants: [
+    products: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'users',
+        ref: 'products',
       },
     ],
-    ordered_items: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'ordered_items',
-      },
-    ],
+    total: {
+      type: Number,
+      default: 0.00
+    },
+    delivery_info: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'shipping_addresses',
+      required: [true, 'Order must contain delivery info.'],
+    },
   },
   {
     timestamps: {
