@@ -5,7 +5,7 @@ import { handleErrors } from '../utils/errorHandler.js'
 export const createProductCategory = async (req, res, next) => {
   try {
     const { name } = req.body
-    const user = req.locals.user
+    const user = res.locals.user
     if (!name) {
       return res.status(StatusCodes.BAD_REQUEST).json({
         message: 'Name is required',
@@ -14,10 +14,10 @@ export const createProductCategory = async (req, res, next) => {
     const exists = await ProductCategory.findOne({ name,owner:toObjectId(user) })
     if (exists) {
       return res.status(StatusCodes.BAD_REQUEST).json({
-        message: 'Product brand name already exists',
+        message: 'Product category name already exists',
       })
     }
-    const category = ProductCategory.create({ name, owner: user })
+    const category = ProductCategory.create({ name, owner: toObjectId(user) })
     res.status(StatusCodes.CREATED).json(category)
   } catch (err) {
     const error = handleErrors(err)
@@ -29,7 +29,7 @@ export const updateProductCategory = async (req, res, next) => {
   try {
     const { name } = req.body
     const id = req.params.id
-    const user = req.locals.user
+    const user = res.locals.user
     const existing = await ProductCategory.findOne({
       name,
       owner: toObjectId(user),
@@ -38,18 +38,19 @@ export const updateProductCategory = async (req, res, next) => {
       _id: toObjectId(id),
       owner: toObjectId(user),
     })
-    if (existing && existing.id !== update.id) {
-      return res.status(StatusCodes.BAD_REQUEST).json({
-        message: 'Product brand name exist',
-      })
-    }
-
     if (!update) {
       return res.status(StatusCodes.BAD_REQUEST).json({
-        message: 'Product brand does not exist',
+        message: 'Product category does not exist',
       })
     }
-    const updated = await update.update({ name })
+    if (existing && existing.id !== update.id) {
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        message: 'Product category name exist',
+      })
+    }
+    
+    await update.update({ name })
+    const updated =  ProductCategory.findById(id)
     res.status(StatusCodes.OK).json(updated)
   } catch (err) {
     const error = handleErrors(err)
@@ -60,7 +61,7 @@ export const updateProductCategory = async (req, res, next) => {
 export const deleteProductCategory = async (req, res, next) => {
   try {
     const id = req.params.id
-    const user = req.locals.user
+    const user = res.locals.user
     const exists = await ProductCategory.findOne({
       _id: toObjectId(id),
       owner: toObjectId(user),
@@ -81,7 +82,7 @@ export const deleteProductCategory = async (req, res, next) => {
 export const getOneProductCategory = async (req, res, next) => {
   try {
     const id = req.params.id
-    const user = req.locals.user
+    const user = res.locals.user
     const category = await ProductCategory.findOne({
       _id: toObjectId(id),
       owner: toObjectId(user),
@@ -100,7 +101,7 @@ export const getOneProductCategory = async (req, res, next) => {
 
 export const listProductCategories = async (req, res, next) => {
   try {
-    const user = req.locals.user
+    const user = res.locals.user
     const categories = await ProductCategory.find({ owner: toObjectId(user) })
     res.status(StatusCodes.OK).json(categories)
   } catch (err) {

@@ -6,7 +6,7 @@ import {toObjectId} from '../utils/convert.js'
 export const createProduct = async (req, res, next) => {
   const { name, description, delivery, price, categoryId, brandId } = req.body
   try {
-    const user = req.locals.user
+    const user = res.locals.user
     if (!delivery || !description || !price || !name) {
       return res.status(StatusCodes.BAD_REQUEST).json({
         error: 'Please fill all fields',
@@ -24,9 +24,9 @@ export const createProduct = async (req, res, next) => {
       description,
       delivery,
       price,
-      categoryId,
-      brandId,
-      owner: user,
+      categoryId:toObjectId(categoryId),
+      brandId:toObjectId(brandId),
+      owner: toObjectId(user),
     })
     return res.status(StatusCodes.CREATED).json(product)
   } catch (err) {
@@ -39,27 +39,28 @@ export const updateProduct = async (req, res, next) => {
   try {
     const { name, description, delivery, price, categoryId, brandId } = req.body
     const id = req.params.id
-    const user = req.locals.user
+    const user = res.locals.user
     const product = await Product.findOne({ id: toObjectId(id), owner: user })
     if (!product) {
       return res.status(StatusCodes.NOT_FOUND).json({
         error: 'Product not found',
       })
     }
-    const existingProduct = await Product.findOne({name})
-    if(existingProduct){
+    const existing = await Product.findOne({name})
+    if(existing && existing.id!==product.id){
       return res.status(StatusCodes.BAD_REQUEST).json({
         error: 'Product name already exists',
       })
     }
-    const updated = await product.updateOne({
+  await product.updateOne({
       name,
       description,
       delivery,
       price,
-      categoryId,
-      brandId,
+      categoryId: toObjectId(categoryId),
+      brandId: toObjectId(brandId),
     })
+      const updated = Product.findById(id)
     return res.status(StatusCodes.OK).json(updated)
   } catch (err) {
     const error = handleErrors(err)
@@ -70,7 +71,7 @@ export const updateProduct = async (req, res, next) => {
 export const deleteProduct = async (req, res, next) => {
   try {
     const id = req.params.id
-    const user = req.locals.user
+    const user = res.locals.user
     const product = await Product.findOne({ id: toObjectId(id), owner: user })
     if (!product) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -112,7 +113,7 @@ export const listProducts = async (req, res, next) => {
 }
 export const listProductsByUser = async (req, res, next) => {
   try {
-    const user = req.locals.user
+    const user = res.locals.user
     const products = await Product.find({ owner: user }).populate('brands categories').sort('name ASC')
     return res.status(StatusCodes.OK).json({ products })
   } catch (err) {

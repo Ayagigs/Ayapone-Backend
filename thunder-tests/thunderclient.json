@@ -46,12 +46,12 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-02-24T09:18:14.843Z",
-    "modified": "2023-02-24T13:09:33.552Z",
+    "modified": "2023-03-06T06:01:28.763Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\",\n    \"id_type\": \"voters_card\",\n    \"id_number\": \"1234ert432r455E4T5DR654dr\",\n    \"id_front_image_url\": \"\",\n    \"id_back_image_url\": \"\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}",
+      "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"kudakuda@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\",\n    \"id_type\": \"voters_card\",\n    \"id_number\": \"1234ert432r455E4T5DR654dr\",\n    \"id_front_image_url\": \"\",\n    \"id_back_image_url\": \"\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}",
       "form": []
     },
     "tests": []
@@ -301,6 +301,88 @@
     "auth": {
       "type": "bearer",
       "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "d96cf8a1-a400-4b1c-b950-70519341593c",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "881f5a4b-b68f-4ed1-a678-a4bdfc647e3a",
+    "name": "create brand",
+    "url": "{{baseUrl}}/brands",
+    "method": "POST",
+    "sortNum": 90000,
+    "created": "2023-03-06T06:03:23.509Z",
+    "modified": "2023-03-06T07:48:17.871Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Nikel\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIn0sImlhdCI6MTY3ODA4MjQ4OCwiZXhwIjoxNjc4MTY4ODg4fQ.mZPWoz0YPOHeMGdTqwBVHW1pWXMsoYCJKrXCLOWwDoo"
+    },
+    "tests": []
+  },
+  {
+    "_id": "33d30ddc-7a17-46da-a2c3-80edce1ef246",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "881f5a4b-b68f-4ed1-a678-a4bdfc647e3a",
+    "name": "get brands",
+    "url": "{{baseUrl}}/brands",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-03-06T07:49:11.373Z",
+    "modified": "2023-03-06T07:49:40.725Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIn0sImlhdCI6MTY3ODA4MjQ4OCwiZXhwIjoxNjc4MTY4ODg4fQ.mZPWoz0YPOHeMGdTqwBVHW1pWXMsoYCJKrXCLOWwDoo"
+    },
+    "tests": []
+  },
+  {
+    "_id": "5cd25f7a-29d1-44b8-a7e4-dbbfc6166e4b",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "881f5a4b-b68f-4ed1-a678-a4bdfc647e3a",
+    "name": "update",
+    "url": "{{baseUrl}}/brands/64059a933f01936d8ca45adf",
+    "method": "PATCH",
+    "sortNum": 110000,
+    "created": "2023-03-06T07:50:14.860Z",
+    "modified": "2023-03-06T08:01:47.890Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Addidas\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIn0sImlhdCI6MTY3ODA4MjQ4OCwiZXhwIjoxNjc4MTY4ODg4fQ.mZPWoz0YPOHeMGdTqwBVHW1pWXMsoYCJKrXCLOWwDoo"
+    },
+    "tests": []
+  },
+  {
+    "_id": "e7ee2b38-7a47-438c-a242-189a7d515629",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "881f5a4b-b68f-4ed1-a678-a4bdfc647e3a",
+    "name": "delete brand",
+    "url": "{{baseUrl}}/brands/64059a933f01936d8ca45adf",
+    "method": "DELETE",
+    "sortNum": 120000,
+    "created": "2023-03-06T08:02:13.929Z",
+    "modified": "2023-03-06T08:03:02.977Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIn0sImlhdCI6MTY3ODA4MjQ4OCwiZXhwIjoxNjc4MTY4ODg4fQ.mZPWoz0YPOHeMGdTqwBVHW1pWXMsoYCJKrXCLOWwDoo"
     },
     "tests": []
   }
