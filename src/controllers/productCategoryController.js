@@ -17,7 +17,7 @@ export const createProductCategory = async (req, res, next) => {
         message: 'Product category name already exists',
       })
     }
-    const category = ProductCategory.create({ name, owner: toObjectId(user) })
+    const category = await ProductCategory.create({ name, owner: toObjectId(user) })
     res.status(StatusCodes.CREATED).json(category)
   } catch (err) {
     const error = handleErrors(err)
@@ -50,7 +50,7 @@ export const updateProductCategory = async (req, res, next) => {
     }
     
     await update.update({ name })
-    const updated =  ProductCategory.findById(id)
+    const updated =  await ProductCategory.findById(id)
     res.status(StatusCodes.OK).json(updated)
   } catch (err) {
     const error = handleErrors(err)
@@ -71,7 +71,7 @@ export const deleteProductCategory = async (req, res, next) => {
         message: 'Product category does not exist',
       })
     }
-    const deleted = exists.delete()
+    const deleted = await exists.delete()
     return res.status(StatusCodes.OK).json({ deleted: deleted })
   } catch (err) {
     const error = handleErrors(err)
