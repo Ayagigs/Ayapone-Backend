@@ -29,7 +29,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n    \"email\": \"saitama_punch@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
+                            "raw": "{\n  \"email\": \"kudakuda@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
                         }
                     }
                 },
@@ -79,7 +79,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\",\n    \"id_type\": \"voters_card\",\n    \"id_number\": \"1234ert432r455E4T5DR654dr\",\n    \"id_front_image_url\": \"\",\n    \"id_back_image_url\": \"\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}"
+                            "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"kudakuda@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\",\n    \"id_type\": \"voters_card\",\n    \"id_number\": \"1234ert432r455E4T5DR654dr\",\n    \"id_front_image_url\": \"\",\n    \"id_back_image_url\": \"\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}"
                         }
                     }
                 },
@@ -421,6 +421,402 @@
                             ]
                         }
                     }
+                }
+            ]
+        },
+        {
+            "name": "Products",
+            "item": [
+                {
+                    "name": "Brands",
+                    "item": [
+                        {
+                            "name": "create brand",
+                            "request": {
+                                "method": "POST",
+                                "url": {
+                                    "raw": "{{baseUrl}}/brands",
+                                    "path": [
+                                        "brands"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"name\":\"Nikel\"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "get brands",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/brands",
+                                    "path": [
+                                        "brands"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "update",
+                            "request": {
+                                "method": "PATCH",
+                                "url": {
+                                    "raw": "{{baseUrl}}/brands/64059a933f01936d8ca45adf",
+                                    "path": [
+                                        "brands",
+                                        "64059a933f01936d8ca45adf"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"name\":\"Addidas\"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "delete brand",
+                            "request": {
+                                "method": "DELETE",
+                                "url": {
+                                    "raw": "{{baseUrl}}/brands/64059a933f01936d8ca45adf",
+                                    "path": [
+                                        "brands",
+                                        "64059a933f01936d8ca45adf"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Categories",
+                    "item": [
+                        {
+                            "name": "create",
+                            "request": {
+                                "method": "POST",
+                                "url": {
+                                    "raw": "{{baseUrl}}/category",
+                                    "path": [
+                                        "category"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"name\":\"Belts\"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "get",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/category",
+                                    "path": [
+                                        "category"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "update",
+                            "request": {
+                                "method": "PATCH",
+                                "url": {
+                                    "raw": "{{baseUrl}}/category/6405a35a2678c1c86207b1cb",
+                                    "path": [
+                                        "category",
+                                        "6405a35a2678c1c86207b1cb"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"name\":\"Belts\"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "delete",
+                            "request": {
+                                "method": "DELETE",
+                                "url": {
+                                    "raw": "{{baseUrl}}/category/6405a35a2678c1c86207b1cb",
+                                    "path": [
+                                        "category",
+                                        "6405a35a2678c1c86207b1cb"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Products",
+                    "item": [
+                        {
+                            "name": "create",
+                            "request": {
+                                "method": "POST",
+                                "url": {
+                                    "raw": "{{baseUrl}}/products",
+                                    "path": [
+                                        "products"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"name\":\"Laces\",\n  \"description\":\"Nike shoe laces\",\n  \"delivery\":2,\n  \"price\":200,\n  \"brandId\":\"64059ac154ff2d132cdd5dfb\",\n  \"categoryId\":\"6405a382b0ac627a06f712ef\"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "get all",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/products",
+                                    "path": [
+                                        "products"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "delete",
+                            "request": {
+                                "method": "DELETE",
+                                "url": {
+                                    "raw": "{{baseUrl}}/products/64075cf5b3993408d9de5710",
+                                    "path": [
+                                        "products",
+                                        "64075cf5b3993408d9de5710"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "get all by user",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/products/user",
+                                    "path": [
+                                        "products",
+                                        "user"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "update",
+                            "request": {
+                                "method": "PATCH",
+                                "url": {
+                                    "raw": "{{baseUrl}}/products/640761cd33eed876d8e66b56",
+                                    "path": [
+                                        "products",
+                                        "640761cd33eed876d8e66b56"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"name\":\"Laced \"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
                 }
             ]
         },
