@@ -20,18 +20,46 @@
         "sortNum": 20000
       },
       {
+        "_id": "dbe0124b-9c1c-4318-92c5-7ed611368ec4",
+        "name": "Products",
+        "containerId": "",
+        "created": "2023-03-06T06:03:03.403Z",
+        "sortNum": 30000
+      },
+      {
+        "_id": "881f5a4b-b68f-4ed1-a678-a4bdfc647e3a",
+        "name": "Brands",
+        "containerId": "dbe0124b-9c1c-4318-92c5-7ed611368ec4",
+        "created": "2023-03-06T06:03:11.135Z",
+        "sortNum": 40000
+      },
+      {
+        "_id": "1a2c1472-e3d7-47d6-800d-e10a0eb97b1c",
+        "name": "Categories",
+        "containerId": "dbe0124b-9c1c-4318-92c5-7ed611368ec4",
+        "created": "2023-03-06T08:04:05.843Z",
+        "sortNum": 50000
+      },
+      {
+        "_id": "9f20428b-502f-4d00-ab75-71cd81cdc33e",
+        "name": "Products",
+        "containerId": "dbe0124b-9c1c-4318-92c5-7ed611368ec4",
+        "created": "2023-03-07T15:36:35.405Z",
+        "sortNum": 60000
+      },
+      {
         "_id": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
         "name": "Product Review",
         "containerId": "",
         "created": "2023-02-27T12:48:23.638Z",
-        "sortNum": 30000
+        "sortNum": 70000
       },
       {
         "_id": "b94c94a3-2ef4-4265-ad2c-af1dc867546f",
         "name": "Checkout",
         "containerId": "",
         "created": "2023-03-03T11:54:57.895Z",
-        "sortNum": 40000
+        "sortNum": 80000
       }
     ],
     "settings": {

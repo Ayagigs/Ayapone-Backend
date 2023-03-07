@@ -7,6 +7,37 @@ const productSchema = new mongoose.Schema(
       ref: 'users',
       required: [true, 'Product must belong to a merchant.'],
     },
+    brand: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'brands',
+      required: [true, 'Product must have a brand.'],
+    },
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'categories',
+      required: [true, 'Product must have a category.'],
+    },
+    name: {
+      type: String,
+      required: [true, 'Product Name is required'],
+    },
+    description: {
+      type: String,
+      required: [true, 'Description is required'],
+    },
+    delivery: {
+      type: Number,
+      required: [true, 'Delivery is required'],
+    },
+    price: {
+      type: Number,
+      required: [true, 'Price is required'],
+    },
+    images: {
+      type: [String],
+      required: true,
+      minlength: 1,
+    },
   },
   {
     timestamps: {
