@@ -11,10 +11,11 @@ export const cloudImageUpload = async (req) => {
     api_key: process.env.CLOUDINARY_KEY,
     api_secret: process.env.CLOUDINARY_SECRET,
   })
-  const options = {
+  const options= {
     use_filename: false,
     unique_filename: true,
     overwrite: true,
+
   }
 
   try {

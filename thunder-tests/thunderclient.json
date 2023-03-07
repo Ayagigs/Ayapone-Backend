@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-02-23T18:50:03.190Z",
-    "modified": "2023-02-27T15:28:34.906Z",
+    "modified": "2023-03-07T15:36:06.473Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"email\": \"saitama_punch@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}",
+      "raw": "{\n  \"email\": \"kudakuda@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}",
       "form": []
     },
     "tests": []
@@ -46,12 +46,12 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-02-24T09:18:14.843Z",
-    "modified": "2023-02-24T13:09:33.552Z",
+    "modified": "2023-03-06T06:01:28.763Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"hinata_hyuga@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\",\n    \"id_type\": \"voters_card\",\n    \"id_number\": \"1234ert432r455E4T5DR654dr\",\n    \"id_front_image_url\": \"\",\n    \"id_back_image_url\": \"\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}",
+      "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"kudakuda@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\",\n    \"id_type\": \"voters_card\",\n    \"id_number\": \"1234ert432r455E4T5DR654dr\",\n    \"id_front_image_url\": \"\",\n    \"id_back_image_url\": \"\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}",
       "form": []
     },
     "tests": []
@@ -297,6 +297,266 @@
           "value": "../../../../../../../home/kali/Pictures/Screenshots/Screenshot from 2023-02-16 19-55-04.png"
         }
       ]
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "d96cf8a1-a400-4b1c-b950-70519341593c",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "881f5a4b-b68f-4ed1-a678-a4bdfc647e3a",
+    "name": "create brand",
+    "url": "{{baseUrl}}/brands",
+    "method": "POST",
+    "sortNum": 90000,
+    "created": "2023-03-06T06:03:23.509Z",
+    "modified": "2023-03-06T07:48:17.871Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Nikel\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "33d30ddc-7a17-46da-a2c3-80edce1ef246",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "881f5a4b-b68f-4ed1-a678-a4bdfc647e3a",
+    "name": "get brands",
+    "url": "{{baseUrl}}/brands",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-03-06T07:49:11.373Z",
+    "modified": "2023-03-07T15:43:33.387Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "5cd25f7a-29d1-44b8-a7e4-dbbfc6166e4b",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "881f5a4b-b68f-4ed1-a678-a4bdfc647e3a",
+    "name": "update",
+    "url": "{{baseUrl}}/brands/64059a933f01936d8ca45adf",
+    "method": "PATCH",
+    "sortNum": 110000,
+    "created": "2023-03-06T07:50:14.860Z",
+    "modified": "2023-03-06T08:01:47.890Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Addidas\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "e7ee2b38-7a47-438c-a242-189a7d515629",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "881f5a4b-b68f-4ed1-a678-a4bdfc647e3a",
+    "name": "delete brand",
+    "url": "{{baseUrl}}/brands/64059a933f01936d8ca45adf",
+    "method": "DELETE",
+    "sortNum": 120000,
+    "created": "2023-03-06T08:02:13.929Z",
+    "modified": "2023-03-06T08:03:02.977Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "a386940c-79d6-494b-a8f6-0eae897a1cf4",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "1a2c1472-e3d7-47d6-800d-e10a0eb97b1c",
+    "name": "create",
+    "url": "{{baseUrl}}/category",
+    "method": "POST",
+    "sortNum": 130000,
+    "created": "2023-03-06T08:22:52.017Z",
+    "modified": "2023-03-06T08:25:39.260Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Belts\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "a9b11f03-cd13-4dfb-a448-231bf6d58b40",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "1a2c1472-e3d7-47d6-800d-e10a0eb97b1c",
+    "name": "get",
+    "url": "{{baseUrl}}/category",
+    "method": "GET",
+    "sortNum": 140000,
+    "created": "2023-03-06T08:25:57.700Z",
+    "modified": "2023-03-07T15:44:16.363Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "8a2caa4d-2e3c-4d07-a101-10a8ff91fb35",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "1a2c1472-e3d7-47d6-800d-e10a0eb97b1c",
+    "name": "update",
+    "url": "{{baseUrl}}/category/6405a35a2678c1c86207b1cb",
+    "method": "PATCH",
+    "sortNum": 150000,
+    "created": "2023-03-06T08:26:42.054Z",
+    "modified": "2023-03-06T08:29:43.973Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Belts\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "16d8da3b-993b-49d6-a585-1ec2ec130cb1",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "1a2c1472-e3d7-47d6-800d-e10a0eb97b1c",
+    "name": "delete",
+    "url": "{{baseUrl}}/category/6405a35a2678c1c86207b1cb",
+    "method": "DELETE",
+    "sortNum": 160000,
+    "created": "2023-03-06T08:32:18.189Z",
+    "modified": "2023-03-06T08:33:14.939Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "e1d8ab8e-ef67-4150-bd67-256d3dca9b15",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "9f20428b-502f-4d00-ab75-71cd81cdc33e",
+    "name": "create",
+    "url": "{{baseUrl}}/products",
+    "method": "POST",
+    "sortNum": 170000,
+    "created": "2023-03-07T15:36:44.995Z",
+    "modified": "2023-03-07T15:49:10.371Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Laces\",\n  \"description\":\"Nike shoe laces\",\n  \"delivery\":2,\n  \"price\":200,\n  \"brandId\":\"64059ac154ff2d132cdd5dfb\",\n  \"categoryId\":\"6405a382b0ac627a06f712ef\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "5a20cc9a-8b9b-46b2-a115-ff286d8bb632",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "9f20428b-502f-4d00-ab75-71cd81cdc33e",
+    "name": "get all",
+    "url": "{{baseUrl}}/products",
+    "method": "GET",
+    "sortNum": 180000,
+    "created": "2023-03-07T15:49:38.793Z",
+    "modified": "2023-03-07T15:49:57.777Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "634c6457-8a69-4c12-be09-794a795e34d0",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "9f20428b-502f-4d00-ab75-71cd81cdc33e",
+    "name": "delete",
+    "url": "{{baseUrl}}/products/64075cf5b3993408d9de5710",
+    "method": "DELETE",
+    "sortNum": 190000,
+    "created": "2023-03-07T16:00:16.907Z",
+    "modified": "2023-03-07T16:01:51.764Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "80c65651-7ca3-4f2c-bb5e-29ae04a16c36",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "9f20428b-502f-4d00-ab75-71cd81cdc33e",
+    "name": "get all by user",
+    "url": "{{baseUrl}}/products/user",
+    "method": "GET",
+    "sortNum": 200000,
+    "created": "2023-03-07T16:05:06.842Z",
+    "modified": "2023-03-07T16:08:41.414Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "35aeb9b4-95e7-4404-8a16-e11bedb764a1",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "9f20428b-502f-4d00-ab75-71cd81cdc33e",
+    "name": "update",
+    "url": "{{baseUrl}}/products/640761cd33eed876d8e66b56",
+    "method": "PATCH",
+    "sortNum": 210000,
+    "created": "2023-03-07T16:10:16.608Z",
+    "modified": "2023-03-07T16:31:48.088Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Laced \"\n}",
+      "form": []
     },
     "auth": {
       "type": "bearer",
