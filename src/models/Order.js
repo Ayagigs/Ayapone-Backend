@@ -5,20 +5,31 @@ const orderSchema = new mongoose.Schema(
     buyer: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'users',
-      required: [true, 'Cart must belong to a customer.'],
+      required: [true, 'Order must belong to a customer.'],
     },
-    merchants: [
+    products: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'users',
+        ref: 'products',
       },
     ],
-    ordered_items: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'ordered_items',
-      },
-    ],
+    sub_total: {
+      type: Number,
+      default: 0.00
+    },
+    delivery_fee: {
+      type: Number,
+      default: 0.00
+    },
+    grand_total: {
+      type: Number,
+      default: 0.00
+    },
+    delivery_info: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'shipping_addresses',
+      required: [true, 'Order must contain delivery info.'],
+    },
   },
   {
     timestamps: {
@@ -30,6 +41,11 @@ const orderSchema = new mongoose.Schema(
     },
   },
 )
+
+orderSchema.pre('save', async function(next) {
+  this.grand_total = sub_total + delivery_fee
+  next();
+})
 
 orderSchema.methods.toJSON = function () {
   var obj = this.toObject()
