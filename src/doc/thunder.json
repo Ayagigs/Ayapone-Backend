@@ -29,7 +29,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n    \"email\": \"saitama_punch@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
+                            "raw": "{\n  \"email\": \"kudakuda@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
                         }
                     }
                 },
@@ -482,7 +482,7 @@
                                     "bearer": [
                                         {
                                             "key": "token",
-                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIn0sImlhdCI6MTY3ODA4MjQ4OCwiZXhwIjoxNjc4MTY4ODg4fQ.mZPWoz0YPOHeMGdTqwBVHW1pWXMsoYCJKrXCLOWwDoo",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIiwicmVtZW1iZXJfbWUiOnRydWV9LCJpYXQiOjE2NzgyMDMzNjYsImV4cCI6MTY4MDc5NTM2Nn0.wGgA41GCuAyU6jHGRpTlu-j6KX3hpuzweAOe46P7ur0",
                                             "type": "string"
                                         }
                                     ]
@@ -607,7 +607,7 @@
                                     "bearer": [
                                         {
                                             "key": "token",
-                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIn0sImlhdCI6MTY3ODA4MjQ4OCwiZXhwIjoxNjc4MTY4ODg4fQ.mZPWoz0YPOHeMGdTqwBVHW1pWXMsoYCJKrXCLOWwDoo",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIiwicmVtZW1iZXJfbWUiOnRydWV9LCJpYXQiOjE2NzgyMDMzNjYsImV4cCI6MTY4MDc5NTM2Nn0.wGgA41GCuAyU6jHGRpTlu-j6KX3hpuzweAOe46P7ur0",
                                             "type": "string"
                                         }
                                     ]
@@ -669,6 +669,147 @@
                                         {
                                             "key": "token",
                                             "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIn0sImlhdCI6MTY3ODA4MjQ4OCwiZXhwIjoxNjc4MTY4ODg4fQ.mZPWoz0YPOHeMGdTqwBVHW1pWXMsoYCJKrXCLOWwDoo",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Products",
+                    "item": [
+                        {
+                            "name": "create",
+                            "request": {
+                                "method": "POST",
+                                "url": {
+                                    "raw": "{{baseUrl}}/products",
+                                    "path": [
+                                        "products"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"name\":\"Laces\",\n  \"description\":\"Nike shoe laces\",\n  \"delivery\":2,\n  \"price\":200,\n  \"brandId\":\"64059ac154ff2d132cdd5dfb\",\n  \"categoryId\":\"6405a382b0ac627a06f712ef\"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIiwicmVtZW1iZXJfbWUiOnRydWV9LCJpYXQiOjE2NzgyMDMzNjYsImV4cCI6MTY4MDc5NTM2Nn0.wGgA41GCuAyU6jHGRpTlu-j6KX3hpuzweAOe46P7ur0",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "get all",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/products",
+                                    "path": [
+                                        "products"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "delete",
+                            "request": {
+                                "method": "DELETE",
+                                "url": {
+                                    "raw": "{{baseUrl}}/products/64075cf5b3993408d9de5710",
+                                    "path": [
+                                        "products",
+                                        "64075cf5b3993408d9de5710"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIiwicmVtZW1iZXJfbWUiOnRydWV9LCJpYXQiOjE2NzgyMDMzNjYsImV4cCI6MTY4MDc5NTM2Nn0.wGgA41GCuAyU6jHGRpTlu-j6KX3hpuzweAOe46P7ur0",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "get all by user",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/products/user",
+                                    "path": [
+                                        "products",
+                                        "user"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIiwicmVtZW1iZXJfbWUiOnRydWV9LCJpYXQiOjE2NzgyMDUyOTgsImV4cCI6MTY4MDc5NzI5OH0.fxBGQXbZbbkz19OWh9zX8bg2nfbfiphwP7Fz3RgotO0",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "update",
+                            "request": {
+                                "method": "PATCH",
+                                "url": {
+                                    "raw": "{{baseUrl}}/products/640761cd33eed876d8e66b56",
+                                    "path": [
+                                        "products",
+                                        "640761cd33eed876d8e66b56"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"name\":\"Laced \"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjQwNTgxYjdiM2FkY2Y2MTVmNjI4MWVhIiwicmVtZW1iZXJfbWUiOnRydWV9LCJpYXQiOjE2NzgyMDUyOTgsImV4cCI6MTY4MDc5NzI5OH0.fxBGQXbZbbkz19OWh9zX8bg2nfbfiphwP7Fz3RgotO0",
                                             "type": "string"
                                         }
                                     ]
