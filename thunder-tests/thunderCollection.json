@@ -20,6 +20,20 @@
         "sortNum": 20000
       },
       {
+        "_id": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
+        "name": "Review",
+        "containerId": "dbe0124b-9c1c-4318-92c5-7ed611368ec4",
+        "created": "2023-02-27T12:48:23.638Z",
+        "sortNum": 70000
+      },
+      {
+        "_id": "b94c94a3-2ef4-4265-ad2c-af1dc867546f",
+        "name": "Checkout",
+        "containerId": "",
+        "created": "2023-03-03T11:54:57.895Z",
+        "sortNum": 80000
+      },
+      {
         "_id": "dbe0124b-9c1c-4318-92c5-7ed611368ec4",
         "name": "Products",
         "containerId": "",
@@ -46,20 +60,6 @@
         "containerId": "dbe0124b-9c1c-4318-92c5-7ed611368ec4",
         "created": "2023-03-07T15:36:35.405Z",
         "sortNum": 60000
-      },
-      {
-        "_id": "c83c9584-e2ce-4fd6-9bee-973ad7a73877",
-        "name": "Product Review",
-        "containerId": "",
-        "created": "2023-02-27T12:48:23.638Z",
-        "sortNum": 70000
-      },
-      {
-        "_id": "b94c94a3-2ef4-4265-ad2c-af1dc867546f",
-        "name": "Checkout",
-        "containerId": "",
-        "created": "2023-03-03T11:54:57.895Z",
-        "sortNum": 80000
       }
     ],
     "settings": {
