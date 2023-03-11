@@ -62,3 +62,19 @@ export const emptyCart = async (req, res) => {
     return res.status(StatusCodes.BAD_REQUEST).json(error.message)
   }
 }
+
+export const removeProductFromCart = async (req, res) => {
+  try {
+    const cart = await Cart.findOne({ owner: req.locals.user })
+    if (cart) {
+      cart.products = cart.products.filter((ele) => {
+        return ele.product != productId
+      })
+
+      await cart.save()
+    }
+    
+  } catch (error) {
+    return res.status(StatusCodes.BAD_REQUEST).json(error.message)
+  }
+}
