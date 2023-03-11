@@ -11,7 +11,7 @@ export const addProductToCart = async (req, res) => {
       return res.status(StatusCodes.BAD_REQUEST).json({ error: { message: "product not found" } })
     }
 
-    const cartItem = { product, quantity }
+    const cartItem = { product, quantity, price: product.price }
 
     const cart = await Cart.findOne({ owner: res.locals.user })
     if (cart) {
@@ -38,8 +38,7 @@ export const addProductToCart = async (req, res) => {
 
 export const getCart = async (req, res) => {
   try {
-    console.log('user is: ', req.locals.user);
-    const cart = await Cart.findOne({ owner: req.locals.user })
+    const cart = await Cart.findOne({ owner: res.locals.user })
 
     return res.status(StatusCodes.OK).json({ cart })
   } catch (error) {
@@ -49,7 +48,7 @@ export const getCart = async (req, res) => {
 
 export const emptyCart = async (req, res) => {
   try{
-    const cart = await Cart.findOne({ owner: req.locals.user })
+    const cart = await Cart.findOne({ owner: res.locals.user })
     if (cart) {
       cart.total = 0.00
       cart.products = []
@@ -64,16 +63,23 @@ export const emptyCart = async (req, res) => {
 }
 
 export const removeProductFromCart = async (req, res) => {
+  const { productId } = req.body
   try {
-    const cart = await Cart.findOne({ owner: req.locals.user })
+    const cart = await Cart.findOne({ owner: res.locals.user })
     if (cart) {
+      let amount = 0
       cart.products = cart.products.filter((ele) => {
+        if (ele.product == productId) {
+          amount = ele.price * ele.quantity
+        }
         return ele.product != productId
       })
 
+      cart.total = cart.total - amount
       await cart.save()
     }
     
+    return res.status(StatusCodes.OK).json({ cart })
   } catch (error) {
     return res.status(StatusCodes.BAD_REQUEST).json(error.message)
   }
