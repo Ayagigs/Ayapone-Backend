@@ -722,5 +722,46 @@
       "bearer": "{{token}}"
     },
     "tests": []
+  },
+  {
+    "_id": "94deacf6-5fc0-4d65-8dc5-ede60e729593",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "59e819df-6b13-4329-a6b3-95b264d8f97b",
+    "name": "add to cart",
+    "url": "{{baseUrl}}/cart",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-03-11T19:47:27.644Z",
+    "modified": "2023-03-11T19:58:53.189Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"productId\": \"640ca9f41b63bde88eb28530\",\n  \"quantity\": 4\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "0d593679-102f-4ef1-80f1-7cd9736d5d62",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "59e819df-6b13-4329-a6b3-95b264d8f97b",
+    "name": "Get Cart",
+    "url": "{{baseUrl}}/cart",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-03-11T20:01:03.350Z",
+    "modified": "2023-03-11T20:01:12.326Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
   }
 ]

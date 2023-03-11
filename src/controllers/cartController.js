@@ -1,7 +1,6 @@
 import { StatusCodes } from 'http-status-codes'
 import { Cart } from '../models/Cart.js'
 import { Product } from '../models/Product.js'
-import { ShippingAddress } from '../models/ShippingAddress.js'
 
 export const addProductToCart = async (req, res) => {
   const { productId, quantity } = req.body
@@ -27,7 +26,7 @@ export const addProductToCart = async (req, res) => {
     const newCart = await Cart.create({
       owner: res.locals.user,
       products: cartItem,
-      total: cart.total + (product.price * quantity)
+      total: product.price * quantity
     })
 
     return res.status(StatusCodes.CREATED).json({ cart: newCart })
@@ -39,6 +38,7 @@ export const addProductToCart = async (req, res) => {
 
 export const getCart = async (req, res) => {
   try {
+    console.log('user is: ', req.locals.user);
     const cart = await Cart.findOne({ owner: req.locals.user })
 
     return res.status(StatusCodes.OK).json({ cart })
