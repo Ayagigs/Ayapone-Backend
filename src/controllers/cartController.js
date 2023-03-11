@@ -36,3 +36,13 @@ export const addProductToCart = async (req, res) => {
     return res.status(StatusCodes.BAD_REQUEST).json(error.message)
   }
 }
+
+export const getCart = async (req, res) => {
+  try {
+    const cart = await Cart.findOne({ owner: req.locals.user })
+
+    return res.status(StatusCodes.OK).json({ cart })
+  } catch (error) {
+    return res.status(StatusCodes.BAD_REQUEST).json(error.message)
+  }
+}
