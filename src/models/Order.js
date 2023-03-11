@@ -9,9 +9,15 @@ const orderSchema = new mongoose.Schema(
     },
     products: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'products',
-      },
+        product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'products',
+        },
+        quantity: {
+          type: Number,
+          default: 1,
+        }
+      }
     ],
     sub_total: {
       type: Number,
