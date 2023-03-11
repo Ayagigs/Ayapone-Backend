@@ -46,3 +46,19 @@ export const getCart = async (req, res) => {
     return res.status(StatusCodes.BAD_REQUEST).json(error.message)
   }
 }
+
+export const emptyCart = async (req, res) => {
+  try{
+    const cart = await Cart.findOne({ owner: req.locals.user })
+    if (cart) {
+      cart.total = 0.00
+      cart.products = []
+
+      await cart.save()
+    }
+
+    return res.status(StatusCodes.OK).json({ cart })
+  } catch (error) {
+    return res.status(StatusCodes.BAD_REQUEST).json(error.message)
+  }
+}
