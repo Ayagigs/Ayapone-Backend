@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-02-23T18:50:03.190Z",
-    "modified": "2023-03-07T15:36:06.473Z",
+    "modified": "2023-03-11T16:13:35.488Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"kudakuda@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}",
+      "raw": "{\n  \"email\": \"saitama_punch@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}",
       "form": []
     },
     "tests": []
@@ -313,12 +313,12 @@
     "method": "POST",
     "sortNum": 100000,
     "created": "2023-02-27T12:50:01.734Z",
-    "modified": "2023-03-01T13:55:50.923Z",
+    "modified": "2023-03-11T16:22:46.611Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"comment\": \"looks good\",\n  \"rating\": \"1.5\"\n}",
+      "raw": "{\n  \"orderId\": \"640ca9f41b63bde88eb28530\",\n  \"productId\": \"640ca9f41b63bde88eb28530\",\n  \"comment\": \"looks good\",\n  \"rating\": \"3.5\"\n}",
       "form": []
     },
     "auth": {
@@ -509,11 +509,11 @@
     "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
     "containerId": "881f5a4b-b68f-4ed1-a678-a4bdfc647e3a",
     "name": "update",
-    "url": "{{baseUrl}}/brands/64059a933f01936d8ca45adf",
+    "url": "{{baseUrl}}/brands/640ca8f10a02249707c63866",
     "method": "PATCH",
     "sortNum": 110000,
     "created": "2023-03-06T07:50:14.860Z",
-    "modified": "2023-03-06T08:01:47.890Z",
+    "modified": "2023-03-11T16:16:09.676Z",
     "headers": [],
     "params": [],
     "body": {
@@ -636,12 +636,12 @@
     "method": "POST",
     "sortNum": 170000,
     "created": "2023-03-07T15:36:44.995Z",
-    "modified": "2023-03-07T15:49:10.371Z",
+    "modified": "2023-03-11T16:19:00.089Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Laces\",\n  \"description\":\"Nike shoe laces\",\n  \"delivery\":2,\n  \"price\":200,\n  \"brandId\":\"64059ac154ff2d132cdd5dfb\",\n  \"categoryId\":\"6405a382b0ac627a06f712ef\"\n}",
+      "raw": "{\n  \"name\":\"Laces\",\n  \"description\":\"Nike shoe laces\",\n  \"delivery\":2,\n  \"price\":200,\n  \"brandId\":\"640ca8f10a02249707c63866\",\n  \"categoryId\":\"640ca9a27d90c3fe6ed5c072\"\n}",
       "form": []
     },
     "auth": {
