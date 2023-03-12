@@ -31,6 +31,8 @@ export const checkoutCart = async (req, res) => {
         return res.status(StatusCodes.NOT_ACCEPTABLE).json({ error: { message: 'System cannot place an empty.'} })
       }
 
+      //TODO: validate the current price of each product and update grand total as such.
+
       const order = await Order.create({
         buyer: cart.owner,
         products: cart.products,
@@ -38,7 +40,7 @@ export const checkoutCart = async (req, res) => {
         delivery_info: shippingAddress,
       })
 
-      // create a transaction for this order
+      //TODO: create a transaction for this order
 
       return res.status(StatusCodes.CREATED).json({ order })
     }
