@@ -170,6 +170,7 @@ export const listProducts = async (req, res, next) => {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error })
   }
 }
+
 export const listProductsByUser = async (req, res, next) => {
   try {
     const user = res.locals.user

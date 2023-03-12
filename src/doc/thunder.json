@@ -29,7 +29,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"email\": \"kudakuda@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
+                            "raw": "{\n  \"email\": \"saitama_punch@yopmail.com\",\n    \"password\": \"123456\",\n    \"remember_me\": true\n}"
                         }
                     }
                 },
@@ -494,10 +494,10 @@
                             "request": {
                                 "method": "PATCH",
                                 "url": {
-                                    "raw": "{{baseUrl}}/brands/64059a933f01936d8ca45adf",
+                                    "raw": "{{baseUrl}}/brands/640ca8f10a02249707c63866",
                                     "path": [
                                         "brands",
-                                        "64059a933f01936d8ca45adf"
+                                        "640ca8f10a02249707c63866"
                                     ],
                                     "host": [
                                         "{{baseurl}}"
@@ -700,7 +700,7 @@
                                             "language": "json"
                                         }
                                     },
-                                    "raw": "{\n  \"name\":\"Laces\",\n  \"description\":\"Nike shoe laces\",\n  \"delivery\":2,\n  \"price\":200,\n  \"brandId\":\"64059ac154ff2d132cdd5dfb\",\n  \"categoryId\":\"6405a382b0ac627a06f712ef\"\n}"
+                                    "raw": "{\n  \"name\":\"Laces\",\n  \"description\":\"Nike shoe laces\",\n  \"delivery\":2,\n  \"price\":200,\n  \"brandId\":\"640ca8f10a02249707c63866\",\n  \"categoryId\":\"640ca9a27d90c3fe6ed5c072\"\n}"
                                 },
                                 "auth": {
                                     "type": "bearer",
@@ -817,184 +817,184 @@
                             }
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Product Review",
-            "item": [
-                {
-                    "name": "Create Review",
-                    "request": {
-                        "method": "POST",
-                        "url": {
-                            "raw": "{{baseUrl}}/reviews",
-                            "path": [
-                                "reviews"
-                            ],
-                            "host": [
-                                "{{baseurl}}"
-                            ]
-                        },
-                        "body": {
-                            "mode": "raw",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            },
-                            "raw": "{\n  \"comment\": \"looks good\",\n  \"rating\": \"1.5\"\n}"
-                        },
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        }
-                    }
                 },
                 {
-                    "name": "Fetch Reviews by Current User",
-                    "request": {
-                        "method": "GET",
-                        "url": {
-                            "raw": "{{baseUrl}}/reviews",
-                            "path": [
-                                "reviews"
-                            ],
-                            "host": [
-                                "{{baseurl}}"
-                            ]
-                        },
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
+                    "name": "Review",
+                    "item": [
+                        {
+                            "name": "Create Review",
+                            "request": {
+                                "method": "POST",
+                                "url": {
+                                    "raw": "{{baseUrl}}/reviews",
+                                    "path": [
+                                        "reviews"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"orderId\": \"640ca9f41b63bde88eb28530\",\n  \"productId\": \"640ca9f41b63bde88eb28530\",\n  \"comment\": \"looks good\",\n  \"rating\": \"3.5\"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
                                 }
-                            ]
+                            }
+                        },
+                        {
+                            "name": "Fetch Reviews by Current User",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/reviews",
+                                    "path": [
+                                        "reviews"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Fetch Reviews for a Product",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/reviews/product/{{productId}}",
+                                    "path": [
+                                        "reviews",
+                                        "product",
+                                        "{{productId}}"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Fetch Review by ID",
+                            "request": {
+                                "method": "GET",
+                                "url": {
+                                    "raw": "{{baseUrl}}/reviews/{{reviewId}}",
+                                    "path": [
+                                        "reviews",
+                                        "{{reviewId}}"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Update Review",
+                            "request": {
+                                "method": "PATCH",
+                                "url": {
+                                    "raw": "{{baseUrl}}/reviews/{{reviewId}}",
+                                    "path": [
+                                        "reviews",
+                                        "{{reviewId}}"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    },
+                                    "raw": "{\n  \"comment\": \"looks good\",\n  \"rating\": \"1.5\"\n}"
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "name": "Delete Review",
+                            "request": {
+                                "method": "DELETE",
+                                "url": {
+                                    "raw": "{{baseUrl}}/reviews/{{reviewId}}",
+                                    "path": [
+                                        "reviews",
+                                        "{{reviewId}}"
+                                    ],
+                                    "host": [
+                                        "{{baseurl}}"
+                                    ]
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{token}}",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            }
                         }
-                    }
-                },
-                {
-                    "name": "Fetch Reviews for a Product",
-                    "request": {
-                        "method": "GET",
-                        "url": {
-                            "raw": "{{baseUrl}}/reviews/product/{{productId}}",
-                            "path": [
-                                "reviews",
-                                "product",
-                                "{{productId}}"
-                            ],
-                            "host": [
-                                "{{baseurl}}"
-                            ]
-                        },
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Fetch Review by ID",
-                    "request": {
-                        "method": "GET",
-                        "url": {
-                            "raw": "{{baseUrl}}/reviews/{{reviewId}}",
-                            "path": [
-                                "reviews",
-                                "{{reviewId}}"
-                            ],
-                            "host": [
-                                "{{baseurl}}"
-                            ]
-                        },
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Update Review",
-                    "request": {
-                        "method": "PATCH",
-                        "url": {
-                            "raw": "{{baseUrl}}/reviews/{{reviewId}}",
-                            "path": [
-                                "reviews",
-                                "{{reviewId}}"
-                            ],
-                            "host": [
-                                "{{baseurl}}"
-                            ]
-                        },
-                        "body": {
-                            "mode": "raw",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            },
-                            "raw": "{\n  \"comment\": \"looks good\",\n  \"rating\": \"1.5\"\n}"
-                        },
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Delete Review",
-                    "request": {
-                        "method": "DELETE",
-                        "url": {
-                            "raw": "{{baseUrl}}/reviews/{{reviewId}}",
-                            "path": [
-                                "reviews",
-                                "{{reviewId}}"
-                            ],
-                            "host": [
-                                "{{baseurl}}"
-                            ]
-                        },
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        }
-                    }
+                    ]
                 }
             ]
         },
@@ -1048,6 +1048,130 @@
                             "host": [
                                 "{{baseurl}}"
                             ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Cart",
+            "item": [
+                {
+                    "name": "add to cart",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/cart",
+                            "path": [
+                                "cart"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"productId\": \"640ce6cd673eabc57d136d75\",\n  \"quantity\": 1\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Cart",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/cart",
+                            "path": [
+                                "cart"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "empty cart",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/cart/clear",
+                            "path": [
+                                "cart",
+                                "clear"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "remove product from cart",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "{{baseUrl}}/cart",
+                            "path": [
+                                "cart"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"productId\": \"640ca9f41b63bde88eb28530\"\n}"
                         },
                         "auth": {
                             "type": "bearer",
