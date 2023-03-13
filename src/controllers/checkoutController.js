@@ -53,7 +53,18 @@ export const checkoutCart = async (req, res) => {
         buyer: cart.owner,
         products: purchasedProducts,
         sub_total,
-        delivery_info: shippingAddress,
+        delivery_info: { 
+          last_name,
+          first_name,
+          email,
+          phone_number,
+          addrress_one,
+          addrress_two,
+          city,
+          state,
+          country,
+          postal_code
+        },
       })
 
       // empty the cart
