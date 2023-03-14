@@ -65,6 +65,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
+    google_connected:{
+      type:Boolean,
+      default:false
+    }
   },
   {
     timestamps: {
