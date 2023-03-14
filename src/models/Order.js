@@ -21,6 +21,14 @@ const orderSchema = new mongoose.Schema(
           type: Number,
           default: 0.00,
         },
+        current_status: {
+          type: String,
+          default: "PENDING",
+        },
+        merchant: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'users',
+        },
       },
     ],
     sub_total: {
@@ -36,9 +44,36 @@ const orderSchema = new mongoose.Schema(
       default: 0.00
     },
     delivery_info: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'shipping_addresses',
-      required: [true, 'Order must contain delivery info.'],
+      last_name: {
+        type: String,
+      },
+      first_name: {
+        type: String,
+      },
+      email: {
+        type: String,
+      },
+      phone_number: {
+        type: String,
+      },
+      addrress_one: {
+        type: String,
+      },
+      addrress_two: {
+        type: String,
+      },
+      city: {
+        type: String,
+      },
+      state: {
+        type: String,
+      },
+      country: {
+        type: String,
+      },
+      postal_code: {
+        type: String,
+      },
     },
   },
   {
@@ -53,7 +88,7 @@ const orderSchema = new mongoose.Schema(
 )
 
 orderSchema.pre('save', async function(next) {
-  this.grand_total = sub_total + delivery_fee
+  this.grand_total = this.sub_total + this.delivery_fee
   next();
 })
 

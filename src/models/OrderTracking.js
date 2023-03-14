@@ -6,6 +6,10 @@ const orderSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'orders',
     },
+    product: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'products',
+    },
   },
   {
     timestamps: {
