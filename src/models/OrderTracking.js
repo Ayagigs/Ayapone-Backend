@@ -1,15 +1,14 @@
 import mongoose from 'mongoose'
 
-const orderSchema = new mongoose.Schema(
+const orderTrackingSchema = new mongoose.Schema(
   {
     order: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'orders',
     },
-    product: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'products',
-    },
+    status: {
+      type: String
+    }
   },
   {
     timestamps: {
@@ -22,10 +21,10 @@ const orderSchema = new mongoose.Schema(
   },
 )
 
-orderSchema.methods.toJSON = function () {
+orderTrackingSchema.methods.toJSON = function () {
   var obj = this.toObject()
   delete obj.__v
   return obj
 }
 
-export const Order = mongoose.model('orders', orderSchema)
+export const OrderTracking = mongoose.model('order_trackings', orderTrackingSchema)
