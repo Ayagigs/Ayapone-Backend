@@ -1,5 +1,6 @@
 import { User } from '../models/User.js'
 import { MerchantKYC } from '../models/MerchantKYC.js'
+import { UserWallet } from '../models/UserWallet.js'
 import { createToken } from '../utils/createJwt.js'
 import { handleErrors } from '../utils/errorHandler.js'
 import { hashPassword } from '../utils/hashPassword.js'
@@ -65,6 +66,11 @@ export const register = async (req, res) => {
   }else{
     user = await User.findById(userId)
   }
+
+    const wallet = await UserWallet.create({
+      user: user
+    })
+
     let sender = process.env.EMAIL_NO_REPLY
     let appName = process.env.APP_NAME
     const data = {
@@ -100,10 +106,10 @@ export const register = async (req, res) => {
       user.user_role = EUserRole.MERCHANT
       await user.save()
 
-      return res.status(StatusCodes.CREATED).json({ user, businessKyc: kyc, token })
+      return res.status(StatusCodes.CREATED).json({ user, wallet, businessKyc: kyc, token })
     }
 
-    return res.status(StatusCodes.CREATED).json({ user, token })
+    return res.status(StatusCodes.CREATED).json({ user, wallet, token })
   } catch (err) {
     const error = handleErrors(err)
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error })

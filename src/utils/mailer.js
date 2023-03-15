@@ -27,7 +27,7 @@ const mailer = async (mailOptions) => {
       }
     })
   } catch (error) {
-    console.log(err)
+    console.log(error)
   }
 }
 
