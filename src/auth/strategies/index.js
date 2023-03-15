@@ -1,7 +1,9 @@
 import { access } from 'fs'
 import passport from 'passport'
 import { Strategy as GoogleAuthStrategy } from 'passport-google-oauth20'
+import { EValidIdType } from '../../enums/EValidIdType.js'
 import { User } from '../../models/User.js'
+import { createToken } from '../../utils/createJwt.js'
 export class GoogleAuth {
   static instance = null
   constructor() {
@@ -22,32 +24,28 @@ export class GoogleAuth {
       },
       async (req, _accessToken, _refreshToken, profile, done) => {
         try {
-          const type = req.query.state
-          console.log(type);
           const exist = await User.findOne({
-            email: profile.emails[0],
+            email: profile.emails[0].value,
           })
           if (exist) {
-            const user = await exist.update({
-                google_connected:true,
-                is_email_verified:true,
+             await exist.update({
+              google_connected: true,
+              is_email_verified: true,
             })
             
             return done(
               null,
-              await User.findOne({
-                email: profile.emails[0],
-                email: profile.emails[0],
-              }),
+             exist
             )
           }
           const user = await User.create({
             cover_photo: profile.profileUrl,
-            email: profile.emails[0],
+            email: profile.emails[0].value,
             google_connected: true,
             username: profile.displayName,
-            id_type: 'NONE',
-            phone_number: profile,
+            id_type: EValidIdType.NONE,
+            first_name:profile.name.givenName,
+            last_name:profile.name.familyName,
             is_email_verified: true,
           })
           return done(null, user)
@@ -72,9 +70,15 @@ export class GoogleAuth {
       failureRedirect: `${process.env.FRONTEND_URL}/login`,
       session: false,
     })(req, res, () => {
-      if (req.query.state == 'merchant')
-      { res.send(req.user)
-      }
+      const user = req.user
+      console.log(user);
+      const url = new URL(process.env.FRONTEND_URL)
+      const searchParams = new URLSearchParams({
+        user_id: user._id,
+        token: createToken({ id: user._id }),
+      })
+      url.search = searchParams
+      res.redirect(url)
     })
   }
 }
