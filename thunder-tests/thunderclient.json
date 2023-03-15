@@ -46,12 +46,12 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-02-24T09:18:14.843Z",
-    "modified": "2023-03-06T06:01:28.763Z",
+    "modified": "2023-03-15T07:06:06.525Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"last_name\": \"Hyuga\",\n    \"first_name\": \"Hinata\",\n    \"email\": \"kudakuda@yopmail.com\",\n    \"phone_number\": \"+2348909090909\",\n    \"password\": \"123456\",\n    \"id_type\": \"voters_card\",\n    \"id_number\": \"1234ert432r455E4T5DR654dr\",\n    \"id_front_image_url\": \"\",\n    \"id_back_image_url\": \"\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}",
+      "raw": "{   \n   \"userId\":\"6411676da616b228149ddfcc\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}",
       "form": []
     },
     "tests": []
