@@ -129,3 +129,27 @@ export const cancelOrder = async (req, res) => {
   }
 }
 
+export const deliverOrder = async (req, res) => {
+  try {
+    const order = await Order.findOneAndUpdate(
+      { _id: req.param },
+      { $set: {
+          current_status: EOrderStatus.DELIVERED.toString()
+        }
+      },
+      { new: true }
+    )
+    const orderTracking = await OrderTracking.create({
+      order,
+      status: EOrderStatus.DELIVERED,
+      description: 'merchant delivered product.'
+    })
+
+    // TODO: notify buyer
+
+    return res.status(StatusCodes.OK).json({ order, orderTracking })
+  } catch (error) {
+    console.log(error)
+    return res.status(StatusCodes.BAD_REQUEST).json(error.message)
+  }
+}
