@@ -3,32 +3,25 @@ import { Order } from '../models/Order.js'
 import { User } from '../models/User.js'
 import { OrderTracking } from '../models/OrderTracking.js'
 import { EOrderStatus } from '../enums/EOrderStatus.js'
+import { EUserRole } from '../enums/EUserRole.js'
 
-export const fetchAllOrders = async (req, res) => {
+export const fetchOrderHistory = async (req, res) => {
   try {
-    const orders = await Order.find({}).populate('buyer merchant product')
+    const user = await User.findOne({ _id: res.locals.user })
 
-    return res.status(StatusCodes.OK).json({ orders })
-  } catch (error) {
-    console.log(error)
-    return res.status(StatusCodes.BAD_REQUEST).json(error.message)
-  }
-}
+    let query = {}, fill = 'buyer merchant product'
 
-export const fetchPurchaseHistory = async (req, res) => {
-  try {
-    const orders = await Order.find({ buyer: res.locals.user }).populate('merchant product')
+    if (user.user_role == EUserRole.BUYER) {
+      query = { buyer: res.locals.user }
+      fill = 'merchant product'
+    }
 
-    return res.status(StatusCodes.OK).json({ orders })
-  } catch (error) {
-    console.log(error)
-    return res.status(StatusCodes.BAD_REQUEST).json(error.message)
-  }
-}
+    if (user.user_role == EUserRole.MERCHANT) {
+      query = { merchant: res.locals.user }
+      fill = 'buyer product'
+    }
 
-export const fetchSalesHistory = async (req, res) => {
-  try {
-    const orders = await Order.find({ merchant: res.locals.user }).populate('buyer product')
+    const orders = await Order.find(query).populate(fill)
 
     return res.status(StatusCodes.OK).json({ orders })
   } catch (error) {
