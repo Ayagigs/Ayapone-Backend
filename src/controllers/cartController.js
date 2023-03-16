@@ -15,8 +15,26 @@ export const addProductToCart = async (req, res) => {
 
     const cart = await Cart.findOne({ owner: res.locals.user })
     if (cart) {
-      cart.products.push(cartItem)
-      cart.total = cart.total + (product.price * quantity)
+      //check if product already in cart, if yes, update the quantity and amount
+      let existingItemAmount = 0
+      const existingItem = cart.products.filter((ele) => {
+        if (ele.product == productId) {
+          existingItemAmount = ele.price * ele.quantity
+          ele.price = product.price
+          ele.quantity = quantity
+          console.log('old amount: ', existingItemAmount);
+        }
+        return ele.product == productId
+      })
+
+      if (existingItem.length > 0) {
+        console.log('updating old item: ', existingItem);
+        cart.total = (cart.total - existingItemAmount) + (product.price * quantity)
+      } else {
+        console.log('adding new item');
+        cart.products.push(cartItem)
+        cart.total = cart.total + (product.price * quantity)
+      }
 
       await cart.save();
 
