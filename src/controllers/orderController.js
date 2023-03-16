@@ -101,3 +101,31 @@ export const declineOrder = async (req, res) => {
   }
 }
 
+export const cancelOrder = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: res.locals.user })
+    const order = await Order.findOneAndUpdate(
+      { _id: req.param },
+      { $set: {
+          current_status: EOrderStatus.CANCELLED.toString()
+        }
+      },
+      { new: true }
+    )
+    const orderTracking = await OrderTracking.create({
+      order,
+      status: EOrderStatus.CANCELLED,
+      description: `${user.user_role.toString()} cancelled order.`
+    })
+
+    // TODO: process refunds
+
+    // TODO: notify buyer || merchant
+
+    return res.status(StatusCodes.OK).json({ order, orderTracking })
+  } catch (error) {
+    console.log(error)
+    return res.status(StatusCodes.BAD_REQUEST).json(error.message)
+  }
+}
+
