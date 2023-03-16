@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { EOrderStatus } from '../enums/EOrderStatus.js'
 
 const orderSchema = new mongoose.Schema(
   {
@@ -25,7 +26,7 @@ const orderSchema = new mongoose.Schema(
     },
     current_status: {
       type: String,
-      default: "order placed",
+      default: EOrderStatus.ORDER_PLACED,
     },
     sub_total: {
       type: Number,

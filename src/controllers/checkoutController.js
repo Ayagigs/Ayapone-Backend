@@ -67,7 +67,8 @@ export const checkoutCart = async (req, res) => {
           if (order) {
             await OrderTracking.create({
               order,
-              status: order.current_status
+              status: order.current_status,
+              description: 'new order placed for this product.'
             })
           }
 
