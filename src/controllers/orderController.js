@@ -74,3 +74,30 @@ export const acceptOrder = async (req, res) => {
   }
 }
 
+export const declineOrder = async (req, res) => {
+  try {
+    const order = await Order.findOneAndUpdate(
+      { _id: req.param },
+      { $set: {
+          current_status: EOrderStatus.DECLINED.toString()
+        }
+      },
+      { new: true }
+    )
+    const orderTracking = await OrderTracking.create({
+      order,
+      status: EOrderStatus.DECLINED,
+      description: 'merchant declined to deliver product.'
+    })
+
+    // TODO: process refunds
+
+    // TODO: notify buyer
+
+    return res.status(StatusCodes.OK).json({ order, orderTracking })
+  } catch (error) {
+    console.log(error)
+    return res.status(StatusCodes.BAD_REQUEST).json(error.message)
+  }
+}
+
