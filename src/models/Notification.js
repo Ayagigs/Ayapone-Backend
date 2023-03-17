@@ -2,24 +2,23 @@ import mongoose from 'mongoose'
 
 const notificationSchema = new mongoose.Schema(
   {
-    
-    notifications: [
-    orderID: {
-    type: Number,
-       
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'users',
+      required: [true, 'Notification must belong to a user.'],
     },
-    message: {
-    type: string,
-          
+    title: {
+      type: String,
+      required: [true, 'Notification must have a title.'],
     },
-      
-],
-    email: {
-      type: string,
-      
+    description: {
+      type: String,
+    },
+    read: {
+      type: Boolean,
+      default: false
     },
   },
-
   {
     timestamps: {
       createdAt: 'created_at',
