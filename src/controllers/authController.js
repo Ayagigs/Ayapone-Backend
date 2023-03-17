@@ -39,33 +39,33 @@ export const login = async (req, res) => {
 }
 
 export const register = async (req, res) => {
-  const { last_name, first_name, email, phone_number, password, id_type, id_number, id_front_image_url, id_back_image_url, businessKyc,userId } = req.body
+  const { last_name, first_name, email, phone_number, password, id_type, id_number, id_front_image_url, id_back_image_url, businessKyc, userId } = req.body
   let user 
   try {
     if(!userId){
-    const emailExists = await User.findOne({ email: email })
-    if (emailExists) {
-      return res.status(StatusCodes.BAD_REQUEST).json({ error: { email: 'Email already exists' }})
+      const emailExists = await User.findOne({ email: email })
+      if (emailExists) {
+        return res.status(StatusCodes.BAD_REQUEST).json({ error: { email: 'Email already exists' }})
+      }
+
+      const pwdHash = await hashPassword(password)
+      const emailCode = randomId(6, '000')
+
+      user= await User.create({
+        last_name,
+        first_name,
+        phone_number,
+        email,
+        password: pwdHash,
+        email_verification_token: emailCode,
+        id_type,
+        id_number,
+        id_front_image_url,
+        id_back_image_url
+      })
+    } else {
+      user = await User.findById(userId)
     }
-
-    const pwdHash = await hashPassword(password)
-    const emailCode = randomId(6, '000')
-
-   user= await User.create({
-      last_name,
-      first_name,
-      phone_number,
-      email,
-      password: pwdHash,
-      email_verification_token: emailCode,
-      id_type,
-      id_number,
-      id_front_image_url,
-      id_back_image_url
-    })
-  }else{
-    user = await User.findById(userId)
-  }
 
     const wallet = await UserWallet.create({
       user: user
