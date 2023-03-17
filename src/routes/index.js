@@ -10,6 +10,7 @@ import { ReviewRoutes } from './api/v1/reviewRoute.js'
 import { CheckoutRoutes } from './api/v1/checkout.js'
 import { CartRoutes } from './api/v1/cart.js'
 import { OrderRoutes } from './api/v1/order.js'
+import { NotificationRoutes } from './api/v1/notification.js'
 
 export const router = express.Router()
 
@@ -34,6 +35,7 @@ router.use('/api/v1', ReviewRoutes)
 router.use('/api/v1', CheckoutRoutes)
 router.use('/api/v1', CartRoutes)
 router.use('/api/v1', OrderRoutes)
+router.use('/api/v1', NotificationRoutes)
 
 router.use((req, res) => {
   return res.status(StatusCodes.NOT_FOUND).json({})
