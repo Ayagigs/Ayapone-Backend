@@ -25,7 +25,6 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, 'Password is required.']
     },
     password_reset_token: {
       type: String,
@@ -65,6 +64,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
+    google_connected:{
+      type:Boolean,
+      default:false
+    }
   },
   {
     timestamps: {
