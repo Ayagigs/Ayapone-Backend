@@ -39,7 +39,7 @@ export class GoogleAuth {
             )
           }
           const user = await User.create({
-            cover_photo: profile.profileUrl,
+            profile_photo: profile.profileUrl,
             email: profile.emails[0].value,
             google_connected: true,
             username: profile.displayName,
