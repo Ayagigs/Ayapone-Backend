@@ -10,7 +10,7 @@
             "altText": "AYAPONE"
         },
         "contact": {
-            "url": "https://ayapone-backend.onrender.com/ap1/v1"
+            "url": "https://ayapone-backend.onrender.com/api/v1"
         },
         "license": {
             "name": "GNU GENERAL PUBLIC LICENSE",
