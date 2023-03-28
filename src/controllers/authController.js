@@ -26,7 +26,13 @@ export const login = async (req, res) => {
           id: user._id,
           remember_me,
         })
-        return res.status(StatusCodes.OK).json({ user, token })
+        const response = {
+          status: 'success',
+          message: 'successful',
+          data: { user, token }
+        }
+        
+        return res.status(StatusCodes.OK).json(response)
       }
     }
 
@@ -34,7 +40,12 @@ export const login = async (req, res) => {
     throw Error('invalid credentials')
   } catch (err) {
     const error = handleErrors(err)
-    return res.status(StatusCodes.BAD_REQUEST).json({ error })
+    const response = {
+      status: 'error',
+      message: err.message,
+      data: {error}
+    }
+    return res.status(StatusCodes.BAD_REQUEST).json(response)
   }
 }
 
@@ -45,7 +56,13 @@ export const register = async (req, res) => {
     if(!userId){
       const emailExists = await User.findOne({ email: email })
       if (emailExists) {
-        return res.status(StatusCodes.BAD_REQUEST).json({ error: { email: 'Email already exists' }})
+        const response = {
+          status: 'success',
+          message: 'Email already exist.',
+          data: {}
+        }
+        
+        return res.status(StatusCodes.BAD_REQUEST).json(response)
       }
 
       const pwdHash = await hashPassword(password)
@@ -106,13 +123,29 @@ export const register = async (req, res) => {
       user.user_role = EUserRole.MERCHANT
       await user.save()
 
-      return res.status(StatusCodes.CREATED).json({ user, wallet, businessKyc: kyc, token })
+      const response = {
+        status: 'success',
+        message: 'account created successfuly',
+        data: { user, wallet, businessKyc: kyc, token }
+      }
+      
+      return res.status(StatusCodes.CREATED).json(response)
     }
 
-    return res.status(StatusCodes.CREATED).json({ user, wallet, token })
+    const response = {
+      status: 'success',
+      message: 'account created successfuly',
+      data: { user, wallet, token }
+    }
+    return res.status(StatusCodes.CREATED).json(response)
   } catch (err) {
     const error = handleErrors(err)
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error })
+    const response = {
+      status: 'error',
+      message: err.message,
+      data: {error}
+    }
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(response)
   }
 }
 
@@ -125,13 +158,24 @@ export const verifyAccount = async (req, res) => {
     )
 
     if (!user) {
-      throw Error('invalid verification token')
+      throw Error('invalid otp')
     }
 
-    return res.status(StatusCodes.OK).json({ success: 'SUCCESSFUL' })
+    const response = {
+      status: 'success',
+      message: 'account verified!',
+      data: { user, wallet, businessKyc: kyc, token }
+    }
+    
+    return res.status(StatusCodes.OK).json(response)
   } catch (err) {
     const error = handleErrors(err)
-    return res.status(StatusCodes.BAD_REQUEST).json({ error })
+    const response = {
+      status: 'error',
+      message: err.message,
+      data: {error}
+    }
+    return res.status(StatusCodes.BAD_REQUEST).json(response)
   }
 }
 
@@ -162,10 +206,21 @@ export const requestPasswordReset = async (req, res) => {
 
     const mailsender = mailer(data)
 
-    return res.status(StatusCodes.CREATED).json({ success: "LINK SENT! Please check your email for a recovery link." })
+    const response = {
+      status: 'success',
+      message: 'LINK SENT! Please check your email for a recovery link.',
+      data: {}
+    }
+    
+    return res.status(StatusCodes.OK).json(response)
   } catch (err) {
     const error = handleErrors(err)
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error })
+    const response = {
+      status: 'error',
+      message: err.message,
+      data: {error}
+    }
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(response)
   }
 }
 
@@ -185,7 +240,12 @@ export const setNewPassword = async (req, res) => {
       return res.status(StatusCodes.OK).json({ success: 'SUCCESSFUL' })
     } catch (err) {
       const error = handleErrors(err)
-      return res.status(StatusCodes.BAD_REQUEST).json({ error })
+      const response = {
+        status: 'error',
+        message: err.message,
+        data: {error}
+      }
+      return res.status(StatusCodes.BAD_REQUEST).json(response)
     }
 }
 
