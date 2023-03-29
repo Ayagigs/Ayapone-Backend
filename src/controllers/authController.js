@@ -26,10 +26,12 @@ export const login = async (req, res) => {
           id: user._id,
           remember_me,
         })
+
+        const wallet = await UserWallet.findOne({user:user._id})
         const response = {
           status: 'success',
           message: 'successful',
-          data: { user, token }
+          data: { user, token, wallet }
         }
         
         return res.status(StatusCodes.OK).json(response)
@@ -66,7 +68,7 @@ export const register = async (req, res) => {
       }
 
       const pwdHash = await hashPassword(password)
-      const emailCode = randomId(6, '000')
+      const emailCode = randomId(4, '000')
 
       user= await User.create({
         last_name,
@@ -155,6 +157,7 @@ export const verifyAccount = async (req, res) => {
     const user = await User.findOneAndUpdate(
       { email_verification_token: token, email: email },
       { $set: { is_email_verified: true } },
+      { new: true },
     )
 
     if (!user) {
@@ -164,7 +167,7 @@ export const verifyAccount = async (req, res) => {
     const response = {
       status: 'success',
       message: 'account verified!',
-      data: { user, wallet, businessKyc: kyc, token }
+      data: { user }
     }
     
     return res.status(StatusCodes.OK).json(response)
