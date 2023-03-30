@@ -6,6 +6,7 @@ import cors from 'cors'
 import fileUpload from 'express-fileupload'
 import { db } from './config/mongoose_db.js'
 import { router } from './routes/index.js'
+import { customResponse } from './middlewares/customResponse.js'
 
 dotenv.config()
 db()
@@ -47,3 +48,4 @@ app.use(
 )
 
 app.use(router)
+app.use(customResponse)
