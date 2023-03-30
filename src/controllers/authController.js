@@ -53,7 +53,8 @@ export const login = async (req, res) => {
 
 export const register = async (req, res) => {
   const { last_name, first_name, email, phone_number, password, id_type, id_number, id_front_image_url, id_back_image_url, businessKyc, userId } = req.body
-  let user 
+
+  let user, token
   try {
     if(!userId){
       const emailExists = await User.findOne({ email: email })
@@ -90,23 +91,25 @@ export const register = async (req, res) => {
       user: user
     })
 
-    let sender = process.env.EMAIL_NO_REPLY
-    let appName = process.env.APP_NAME
-    const data = {
-      to: email,
-      from: sender,
-      name: appName,
-      subject: `${appName} Account Verification`,
-      text: `Thank you for joining ${appName}. Use this token to complete your registration: ${user.email_verification_token}`,
-      html: `Thank you for joining <h3><a href="${process.env.BASE_URL}">${appName}</a></h3>.<br /> Use this token to complete your registration: <h2>${user.email_verification_token} </h2>`,
+    if (!user.is_email_verified) {
+      let sender = process.env.EMAIL_NO_REPLY
+      let appName = process.env.APP_NAME
+      const data = {
+        to: email,
+        from: sender,
+        name: appName,
+        subject: `${appName} Account Verification`,
+        text: `Thank you for joining ${appName}. Use this token to complete your registration: ${user.email_verification_token}`,
+        html: `Thank you for joining <h3><a href="${process.env.BASE_URL}">${appName}</a></h3>.<br /> Use this token to complete your registration: <h2>${user.email_verification_token} </h2>`,
+      }
+
+      const mailsender = mailer(data)
+
+      token = createToken({ id: user._id })
     }
 
-    const mailsender = mailer(data)
-
-    const token = createToken({ id: user._id })
-
     if (businessKyc) {
-      const { business_name, registration_number, business_type, address, city, state, country, postal_code, usdt_address, usdt_address_type } = businessKyc
+      const { business_name, registration_number, business_type, address, city, state, country, postal_code, wallet_address, wallet_address_type, wallet_address_nickname } = businessKyc
 
       const kyc = await MerchantKYC.create({
         owner: user,
@@ -118,8 +121,9 @@ export const register = async (req, res) => {
         state,
         country,
         postal_code,
-        usdt_address,
-        usdt_address_type
+        wallet_address,
+        wallet_address_type,
+        wallet_address_nickname
       })
 
       user.user_role = EUserRole.MERCHANT

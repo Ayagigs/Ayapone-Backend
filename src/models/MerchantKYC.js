@@ -38,13 +38,16 @@ const merchantKYCSchema = new mongoose.Schema(
     postal_code: {
       type: String,
     },
-    usdt_address: {
+    wallet_address: {
       type: String,
     },
-    usdt_address_type: {
+    wallet_address_type: {
       type: String,
       enum: EBlockchainAddressType,
       default: EBlockchainAddressType.BEP20,
+    },
+    wallet_address_nickname: {
+      type: String,
     },
     verification_status: {
       type: String,

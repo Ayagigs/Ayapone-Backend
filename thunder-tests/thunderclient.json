@@ -22,7 +22,7 @@
     "_id": "513713c1-0f72-474b-9b29-bb5295baf8f2",
     "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
     "containerId": "8597bcc2-2a31-49a2-9bb2-bb07d9653596",
-    "name": "Buyer - Sign up",
+    "name": "Local Sign up",
     "url": "{{baseUrl}}/auth/register",
     "method": "POST",
     "sortNum": 30000,
@@ -41,17 +41,17 @@
     "_id": "9016bdd5-3622-4940-b836-03a3a4d48388",
     "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
     "containerId": "8597bcc2-2a31-49a2-9bb2-bb07d9653596",
-    "name": "Merchant - Sign up",
+    "name": "Local Sign up with Merchant data",
     "url": "{{baseUrl}}/auth/register",
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-02-24T09:18:14.843Z",
-    "modified": "2023-03-15T07:06:06.525Z",
+    "modified": "2023-03-30T15:11:13.645Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{   \n   \"userId\":\"6411676da616b228149ddfcc\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"usdt_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"usdt_address_type\": \"BEP20\"\n    }\n}",
+      "raw": "{   \n   \"userId\":\"6411676da616b228149ddfcc\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"wallet_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"wallet_address_type\": \"BEP20\",\n      \"wallet_address_nickname\": \"my BEP20\"\n    }\n}",
       "form": []
     },
     "tests": []
@@ -802,6 +802,25 @@
     "auth": {
       "type": "bearer",
       "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "0dbb388a-8bc2-41fa-84b1-830c740bbc9e",
+    "colId": "879acb68-5621-4780-b071-26271a6f5e7b",
+    "containerId": "8597bcc2-2a31-49a2-9bb2-bb07d9653596",
+    "name": "Sign up Merchant after Google Auth Copy",
+    "url": "{{baseUrl}}/auth/register",
+    "method": "POST",
+    "sortNum": 45000,
+    "created": "2023-03-30T15:31:36.951Z",
+    "modified": "2023-03-30T15:31:36.951Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{   \n   \"userId\":\"6411676da616b228149ddfcc\",\n    \"businessKyc\": {\n      \"business_name\": \"Kabin\",\n      \"registration_number\": \"RC6767\",\n      \"business_type\": \"others\",\n      \"address\": \"\",\n      \"city\": \"\",\n      \"state\": \"\",\n      \"country\": \"\",\n      \"postal_code\": \"\",\n      \"wallet_address\": \"0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE\",\n      \"wallet_address_type\": \"BEP20\",\n      \"wallet_address_nickname\": \"my BEP20\"\n    }\n}",
+      "form": []
     },
     "tests": []
   }
