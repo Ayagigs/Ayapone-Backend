@@ -198,13 +198,14 @@ export const requestPasswordReset = async (req, res) => {
 
     let sender = process.env.EMAIL_NO_REPLY
     let appName = process.env.APP_NAME
+    let url = process.env.FRONTEND_URL
     const data = {
       to: email,
       from: sender,
       name: appName,
       subject: `${appName} Password Reset`,
-      text: `Follow this link to reset your passowrd: ${process.env.FRONTEND_URL}/password-reset/${emailExists.password_reset_token}`,
-      html: `<h3>Follow this link to reset your passowrd: <a href="${process.env.FRONTEND_URL}/password-reset/${emailExists.password_reset_token}">${process.env.FRONTEND_URL}/password-reset/${emailExists.password_reset_token}</a></h3>`,
+      text: `Follow this link to reset your passowrd: ${url}/password-reset/${emailExists.password_reset_token}`,
+      html: `<h3>Follow this link to reset your passowrd: <a href="${url}/password-reset/${emailExists.password_reset_token}">${url}/password-reset/${emailExists.password_reset_token}</a></h3>`,
     }
 
     const mailsender = mailer(data)
