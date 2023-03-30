@@ -238,7 +238,7 @@ export const setNewPassword = async (req, res) => {
         { $set: { password_reset_token: '', password: pwdHash } },
       )
       if (!user) {
-        throw Error('invalid recovery token')
+        throw Error('invalid recovery token: the recovery link have expired.')
       }
 
       const response = {
