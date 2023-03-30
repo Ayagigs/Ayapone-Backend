@@ -241,7 +241,13 @@ export const setNewPassword = async (req, res) => {
         throw Error('invalid recovery token')
       }
 
-      return res.status(StatusCodes.OK).json({ success: 'SUCCESSFUL' })
+      const response = {
+        status: 'success',
+        message: 'password changed successfuly. Please login with your email and new password.',
+        data: {}
+      }
+
+      return res.status(StatusCodes.OK).json(response)
     } catch (err) {
       const error = handleErrors(err)
       const response = {
