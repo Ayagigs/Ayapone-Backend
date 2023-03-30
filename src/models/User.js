@@ -47,6 +47,12 @@ const userSchema = new mongoose.Schema(
     cover_photo: {
       type: String,
     },
+    gender: {
+      type: String,
+    },
+    date_of_birth: {
+      type: String,
+    },
     id_type: {
       type: String,
       enum: EValidIdType,
