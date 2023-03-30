@@ -12,7 +12,7 @@ import randomId from 'random-id'
 
 export const login = async (req, res) => {
   const { email, password, remember_me } = req.body
-
+  let businessKyc
   try {
     const user = await User.findOne({ email: email, is_deleted: false })
     if (!user) {
@@ -28,10 +28,15 @@ export const login = async (req, res) => {
         })
 
         const wallet = await UserWallet.findOne({user:user._id})
+        
+        if (user.user_role == EUserRole.MERCHANT) {
+          businessKyc = await MerchantKYC.findOne({owner:user_id})
+        }
+
         const response = {
           status: 'success',
           message: 'successful',
-          data: { user, token, wallet }
+          data: { user, token, wallet, businessKyc }
         }
         
         return res.status(StatusCodes.OK).json(response)
@@ -53,7 +58,8 @@ export const login = async (req, res) => {
 
 export const register = async (req, res) => {
   const { last_name, first_name, email, phone_number, password, id_type, id_number, id_front_image_url, id_back_image_url, businessKyc, userId } = req.body
-  let user 
+
+  let user, token
   try {
     if(!userId){
       const emailExists = await User.findOne({ email: email })
@@ -90,23 +96,25 @@ export const register = async (req, res) => {
       user: user
     })
 
-    let sender = process.env.EMAIL_NO_REPLY
-    let appName = process.env.APP_NAME
-    const data = {
-      to: email,
-      from: sender,
-      name: appName,
-      subject: `${appName} Account Verification`,
-      text: `Thank you for joining ${appName}. Use this token to complete your registration: ${user.email_verification_token}`,
-      html: `Thank you for joining <h3><a href="${process.env.BASE_URL}">${appName}</a></h3>.<br /> Use this token to complete your registration: <h2>${user.email_verification_token} </h2>`,
+    if (!user.is_email_verified) {
+      let sender = process.env.EMAIL_NO_REPLY
+      let appName = process.env.APP_NAME
+      const data = {
+        to: email,
+        from: sender,
+        name: appName,
+        subject: `${appName} Account Verification`,
+        text: `Thank you for joining ${appName}. Use this token to complete your registration: ${user.email_verification_token}`,
+        html: `Thank you for joining <h3><a href="${process.env.BASE_URL}">${appName}</a></h3>.<br /> Use this token to complete your registration: <h2>${user.email_verification_token} </h2>`,
+      }
+
+      const mailsender = mailer(data)
+
+      token = createToken({ id: user._id })
     }
 
-    const mailsender = mailer(data)
-
-    const token = createToken({ id: user._id })
-
     if (businessKyc) {
-      const { business_name, registration_number, business_type, address, city, state, country, postal_code, usdt_address, usdt_address_type } = businessKyc
+      const { business_name, registration_number, business_type, address, city, state, country, postal_code, wallet_address, wallet_address_type, wallet_address_nickname } = businessKyc
 
       const kyc = await MerchantKYC.create({
         owner: user,
@@ -118,8 +126,9 @@ export const register = async (req, res) => {
         state,
         country,
         postal_code,
-        usdt_address,
-        usdt_address_type
+        wallet_address,
+        wallet_address_type,
+        wallet_address_nickname
       })
 
       user.user_role = EUserRole.MERCHANT
@@ -238,10 +247,16 @@ export const setNewPassword = async (req, res) => {
         { $set: { password_reset_token: '', password: pwdHash } },
       )
       if (!user) {
-        throw Error('invalid recovery token')
+        throw Error('invalid recovery token: the recovery link have expired.')
       }
 
-      return res.status(StatusCodes.OK).json({ success: 'SUCCESSFUL' })
+      const response = {
+        status: 'success',
+        message: 'password changed successfuly. Please login with your email and new password.',
+        data: {}
+      }
+
+      return res.status(StatusCodes.OK).json(response)
     } catch (err) {
       const error = handleErrors(err)
       const response = {
