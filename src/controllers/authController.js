@@ -12,7 +12,7 @@ import randomId from 'random-id'
 
 export const login = async (req, res) => {
   const { email, password, remember_me } = req.body
-
+  let businessKyc
   try {
     const user = await User.findOne({ email: email, is_deleted: false })
     if (!user) {
@@ -28,10 +28,15 @@ export const login = async (req, res) => {
         })
 
         const wallet = await UserWallet.findOne({user:user._id})
+        
+        if (user.user_role == EUserRole.MERCHANT) {
+          businessKyc = await MerchantKYC.findOne({owner:user_id})
+        }
+
         const response = {
           status: 'success',
           message: 'successful',
-          data: { user, token, wallet }
+          data: { user, token, wallet, businessKyc }
         }
         
         return res.status(StatusCodes.OK).json(response)
