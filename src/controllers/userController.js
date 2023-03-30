@@ -41,7 +41,7 @@ export const fetchOneUserById = async (req, res) => {
 }
 
 export const updateUser = async (req, res) => {
-  const { last_name, first_name, phone_number, username, id_type, id_number, id_front_image_url, id_back_image_url } = req.body
+  const { last_name, first_name, phone_number, username, id_type, id_number, id_front_image_url, id_back_image_url, gender, date_of_birth } = req.body
 
   try {
     const updatedUser = await User.findOneAndUpdate(
@@ -54,7 +54,9 @@ export const updateUser = async (req, res) => {
           id_type,
           id_number,
           id_front_image_url,
-          id_back_image_url
+          id_back_image_url,
+          gender,
+          date_of_birth
         }
       },
       { new: true },
