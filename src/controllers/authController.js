@@ -30,7 +30,7 @@ export const login = async (req, res) => {
         const wallet = await UserWallet.findOne({user:user._id})
         
         if (user.user_role == EUserRole.MERCHANT) {
-          businessKyc = await MerchantKYC.findOne({owner:user_id})
+          businessKyc = await MerchantKYC.findOne({owner:user._id})
         }
 
         const response = {
