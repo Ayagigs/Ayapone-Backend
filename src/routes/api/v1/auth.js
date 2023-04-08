@@ -7,6 +7,8 @@ import {
   requestPasswordReset,
   setNewPassword,
   regenerateToken,
+  adminLogin,
+  adminLoginVerify
 } from '../../../controllers/authController.js'
 import { requiresAuth } from '../../../middlewares/requiresAuth.js'
 
@@ -21,3 +23,6 @@ AuthRoutes.get('/auth/google/callback', google.callback)
 AuthRoutes.post('/auth/request-password-reset', requestPasswordReset)
 AuthRoutes.post('/auth/reset-password', setNewPassword)
 AuthRoutes.post('/auth/regenerate-token', requiresAuth, regenerateToken)
+
+AuthRoutes.post('/auth/admin/request-login', adminLogin)
+AuthRoutes.post('/auth/admin/verify-key', adminLoginVerify)
