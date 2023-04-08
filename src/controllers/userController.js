@@ -23,6 +23,32 @@ export const fetchAllUsers = async (req, res) => {
   }
 }
 
+export const fetchAllUserByRole = async (req, res) => {
+  const { role } = req.params
+  try {
+    const users = await User.find({ user_role: role })
+    if (!users) {
+      const response = {
+        status: 'error',
+        message: `${role}'s not found`,
+        data: {}
+      }
+      return res.status(StatusCodes.NOT_FOUND).json(response)
+    }
+
+    const response = {
+      status: 'success',
+      message: `${role}'s found`,
+      data: users
+    }
+
+    return res.status(StatusCodes.OK).json(response)
+  } catch (err) {
+    const error = handleErrors(err)
+    return res.status(StatusCodes.BAD_REQUEST).json({ error })
+  }
+}
+
 export const fetchOneUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.userId)
