@@ -41,6 +41,9 @@ const userSchema = new mongoose.Schema(
       enum: EUserRole,
       default: EUserRole.BUYER,
     },
+    admin_active_code: {
+      type: String
+    },
     profile_photo: {
       type: String,
     },

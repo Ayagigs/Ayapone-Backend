@@ -281,3 +281,90 @@ export const regenerateToken = async (req, res) => {
     return res.status(StatusCodes.BAD_REQUEST).json({ error })
   }
 }
+
+
+export const adminLogin = async (req, res) => {
+  const { email } = req.body
+  try {
+    const user = await User.findOne({ email: email, is_deleted: false })
+    if (!user) {
+      throw Error('invalid credentials')
+    }
+
+    if (user.user_role == EUserRole.ADMIN) {
+      const emailCode = randomId(32, '0Aa')
+      const emailOtp = randomId(8, '000')
+
+      user.admin_active_code = emailCode
+      user.email_verification_token = emailOtp
+
+      await user.save()
+      //send email
+      let sender = process.env.EMAIL_NO_REPLY
+      let appName = process.env.APP_NAME
+      const data = {
+        to: email,
+        from: sender,
+        name: appName,
+        subject: `${appName} - Admin SignIn Id`,
+        text: `Hello Admin, your SignIn ID is: ${user.email_verification_token}`,
+        html: `Hello Admin, <br /> <h3>Your SignIn ID is: <h2>${user.email_verification_token} </h2>`,
+      }
+
+      const mailsender = mailer(data)
+
+      const response = {
+        status: 'success',
+        message: `access token sent to ${email}`,
+        data: { code: emailCode }
+      }
+      
+      return res.status(StatusCodes.OK).json(response)
+    }
+
+    // failed credentials
+    throw Error('invalid credentials')
+  } catch (err) {
+    const error = handleErrors(err)
+    const response = {
+      status: 'error',
+      message: err.message,
+      data: {error}
+    }
+    return res.status(StatusCodes.BAD_REQUEST).json(response)
+  }
+}
+
+export const adminLoginVerify = async (req, res) => {
+  const { code, otp } = req.body
+  try {
+    const user = await User.findOne({ admin_active_code: code, email_verification_token: otp, is_deleted: false })
+    if (!user) {
+      throw Error('invalid credentials')
+    }
+
+    if (user.user_role == EUserRole.ADMIN) {
+      const token = createToken({
+        id: user._id
+      })
+      const response = {
+        status: 'success',
+        message: `welcome admin`,
+        data: { user, token }
+      }
+      
+      return res.status(StatusCodes.OK).json(response)
+    }
+
+    // failed credentials
+    throw Error('invalid credentials')
+  } catch (err) {
+    const error = handleErrors(err)
+    const response = {
+      status: 'error',
+      message: err.message,
+      data: {error}
+    }
+    return res.status(StatusCodes.BAD_REQUEST).json(response)
+  }
+}
