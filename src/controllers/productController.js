@@ -4,9 +4,12 @@ import { handleErrors } from '../utils/errorHandler.js'
 import { toObjectId } from '../utils/convert.js'
 import { ProductBrand } from '../models/ProductBrand.js'
 import { ProductCategory } from '../models/ProductCategory.js'
+import { cloudImageUpload } from '../utils/fileHandler.js'
 
 export const createProduct = async (req, res, next) => {
   const { name, description, delivery, price, categoryId, brandId } = req.body
+  console.log('request: ', req.body);
+  console.log('files: ', req.files);
   try {
     const user = res.locals.user
     if (
@@ -17,18 +20,24 @@ export const createProduct = async (req, res, next) => {
       !brandId ||
       !categoryId
     ) {
-      return res.status(StatusCodes.BAD_REQUEST).json({
-        error: 'Please fill all fields',
-      })
+      const response = {
+        status: 'error',
+        message: 'Please fill all fields',
+        data: {}
+      }
+      return res.status(StatusCodes.BAD_REQUEST).json(response)
     }
     const existingProduct = await Product.findOne({
       name,
       owner: toObjectId(user),
     })
     if (existingProduct) {
-      return res.status(StatusCodes.BAD_REQUEST).json({
-        error: 'Product already exists',
-      })
+      const response = {
+        status: 'error',
+        message: 'Product already exists',
+        data: {}
+      }
+      return res.status(StatusCodes.BAD_REQUEST).json(response)
     }
     const brand = await ProductBrand.findOne({
       _id: toObjectId(brandId),
@@ -39,23 +48,47 @@ export const createProduct = async (req, res, next) => {
       owner: toObjectId(user),
     })
     if (!brand || !category) {
-      return res.status(StatusCodes.NOT_FOUND).json({
-        error: 'Product Brand Or Category not found',
-      })
+      const response = {
+        status: 'error',
+        message: 'Product Brand Or Category not found',
+        data: {}
+      }
+      return res.status(StatusCodes.BAD_REQUEST).json(response)
     }
+
+
+    const upload = await cloudImageUpload(req)
+
     const product = await Product.create({
       name,
       description,
       delivery,
+      product_availability,
       price,
+      images: (upload && upload.status == true) ? upload.urls : [],
+      overview,
+      specification,
       category: toObjectId(categoryId),
       brand: toObjectId(brandId),
       owner: toObjectId(user),
     })
-    return res.status(StatusCodes.CREATED).json(product)
+
+    const response = {
+      status: 'success',
+      message: 'added successfully',
+      data: product
+    }
+
+    return res.status(StatusCodes.CREATED).json(response)
   } catch (err) {
     const error = handleErrors(err)
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error })
+
+    const response = {
+      status: 'error',
+      message: 'request could not be processed at the moment, please try again later.',
+      data: {error}
+    }
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(response)
   }
 }
 

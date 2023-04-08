@@ -29,14 +29,26 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: [true, 'Delivery is required'],
     },
+    product_availability: {
+      type: String,
+      required: [true, 'Description is required'],
+    },
     price: {
       type: Number,
       required: [true, 'Price is required'],
     },
     images: {
       type: [String],
-      required: true,
-      minlength: 1,
+      // required: true,
+      // minlength: 1,
+    },
+    overview: {
+      type: String,
+      required: [true, 'Description is required'],
+    },
+    specification: {
+      type: String,
+      required: [true, 'Description is required'],
     },
   },
   {
